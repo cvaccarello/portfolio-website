@@ -1,0 +1,133 @@
+@use 'sass:math';
+
+$history-bar-width: 6px;
+$history-bar-color: $color-green;
+$history-bar-indicator-width: $history-bar-width * 4;
+
+.history-bar-timeline {
+	position: relative;
+}
+
+.history-bar-organization {
+	position: relative;
+	padding: 80px 0 100px;
+	float: none;
+
+	ul {
+		margin: 0;
+		line-height: 1.3;
+		list-style: none;
+	}
+
+	li {
+		margin-bottom: 15px;
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+
+	.org-date,
+	.org-name,
+	.org-title {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.org-date {
+		font-style: italic;
+	}
+
+	.org-name {
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	// shouldn't ever have to do this, but we need to override javascript on small resolutions
+	@include breakpoint(0 ($bp-s - 1)) {
+		top: 0 !important;
+	}
+}
+
+
+/** Styles for History Line **/
+.history-bar-line {
+	position: absolute;
+	top: $history-bar-indicator-width;
+	left: calc(50% - 21px);
+	width: $history-bar-width;
+	height: calc(100% - #{$history-bar-indicator-width * 2});
+	background: $color-white;
+	margin-left: -$history-bar-width * 0.5;
+	box-shadow: $box-shadow-light;
+	display: none;
+
+	@include breakpoint($bp-s) {
+		display: block;
+	}
+}
+
+.history-bar-markers {
+	$width: $history-bar-width * 3;
+	position: relative;
+	height: 100%;
+	width: $width;
+	left: 0 - ($width * 0.5) + ($history-bar-width * 0.5);
+	z-index: 2;
+
+	td {
+		// position: relative;
+		padding: 0;
+		border-top: 2px solid $color-white;
+		border-bottom: 2px solid $color-white;
+	}
+
+	.history-bar-marker {
+		position: relative;
+
+		i {
+			position: absolute;
+			top: -17px;
+			left: 30px;
+			line-height: 30px;
+		}
+	}
+
+	// modifier for last marker, special case
+	.history-bar-marker-last {
+		position: absolute;
+		bottom: 0;
+
+		i {
+			margin-top: 2px;
+		}
+	}
+}
+
+.history-bar-fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: $history-bar-width;
+	background: $history-bar-color url('/images/backgrounds/main.png') 0 0 repeat;
+}
+
+.history-bar-indicator {
+	$width: $history-bar-indicator-width;
+	position: absolute;
+	bottom: -$width * 0.5;
+	left: $history-bar-width * 0.5;
+	width: $width;
+	height: $width;
+	margin-left: -$width * 0.5;
+	background: $color-white;
+	border: 3px solid $history-bar-color;
+	border-radius: $width * 2;
+	z-index: 3;
+
+	&.skrollable-between {
+		position: fixed;
+		bottom: calc(50% - 12px);
+		left: 50%;
+	}
+}

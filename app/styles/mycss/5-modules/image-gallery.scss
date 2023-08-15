@@ -1,0 +1,18 @@
+// namespace: 'image-gallery'
+
+.image-gallery-item {
+	margin-bottom: map-get($margins, 'normal');
+}
+
+.image-gallery-thumbnail {
+	width: 100%;
+	background-color: $color-darkwhite;
+	border: 1px solid $color-darkwhite;
+	margin-bottom: map-get($margins, 'normal');
+	display: block;
+}
+
+// modifier: 'transparent'
+.image-gallery-thumbnail-transparent {
+	background-color: transparent;
+}

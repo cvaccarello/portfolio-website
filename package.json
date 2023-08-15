@@ -28,8 +28,11 @@
 		"@babel/eslint-parser": "^7.22.5",
 		"@babel/plugin-proposal-decorators": "^7.22.5",
 		"@ember/optional-features": "^2.0.0",
+		"@ember/render-modifiers": "^2.1.0",
 		"@ember/string": "^3.1.1",
 		"@ember/test-helpers": "^3.1.0",
+		"@fortawesome/ember-fontawesome": "^0.4.3",
+		"@fortawesome/free-solid-svg-icons": "^6.4.0",
 		"@glimmer/component": "^1.1.2",
 		"@glimmer/tracking": "^1.1.2",
 		"broccoli-asset-rev": "^3.0.0",
@@ -38,10 +41,12 @@
 		"ember-cli": "~5.1.0",
 		"ember-cli-app-version": "^6.0.1",
 		"ember-cli-babel": "^7.26.11",
+		"ember-cli-chart": "^3.7.2",
 		"ember-cli-clean-css": "^2.0.0",
 		"ember-cli-dependency-checker": "^3.3.2",
 		"ember-cli-htmlbars": "^6.2.0",
 		"ember-cli-inject-live-reload": "^2.1.0",
+		"ember-cli-sass": "^11.0.1",
 		"ember-cli-sri": "^2.1.1",
 		"ember-cli-terser": "^4.0.2",
 		"ember-data": "~5.1.0",
@@ -64,6 +69,7 @@
 		"prettier": "^2.8.8",
 		"qunit": "^2.19.4",
 		"qunit-dom": "^2.0.0",
+		"sass": "^1.64.0",
 		"stylelint": "^15.9.0",
 		"stylelint-config-standard": "^33.0.0",
 		"stylelint-prettier": "^3.0.0",
@@ -75,5 +81,12 @@
 	},
 	"ember": {
 		"edition": "octane"
+	},
+	"dependencies": {
+		"breakpoint-sass": "^3.0.0",
+		"ember-math-helpers": "^3.0.0",
+		"ember-truth-helpers": "^3.1.1",
+		"jquery": "^3.7.0",
+		"skrollr": "^0.6.26"
 	}
 }

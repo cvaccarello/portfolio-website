@@ -7,13 +7,19 @@ module.exports = function (defaults) {
 		// 'ember-font-awesome': {
 		// 	useScss: true
 		// },
-		// sassOptions: {
-		// 	includePaths: [
-		// 		'app',
-		// 		'bower_components/breakpoint-sass/stylesheets'
-		// 	]
-		// }
+		sassOptions: {
+			includePaths: ['app', 'node_modules/breakpoint-sass/stylesheets'],
+		},
 	});
+
+	app.import('node_modules/jquery/dist/jquery.min.js');
+
+	app.import({
+		production: 'node_modules/skrollr/dist/skrollr.min.js',
+		development: 'node_modules/skrollr/src/skrollr.js',
+	});
+
+	app.import('public/ParticleSystem.js');
 
 	return app.toTree();
 };

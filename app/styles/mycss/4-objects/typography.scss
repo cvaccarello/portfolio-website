@@ -1,0 +1,10 @@
+// margin adjustments
+@each $margin, $value in $margins {
+	.t-margin-#{$margin} {
+		margin-bottom: $value;
+	}
+}
+
+.t-shadow {
+	text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.4);
+}

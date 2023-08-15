@@ -1,0 +1,19 @@
+input,
+textarea,
+select,
+fieldset,
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+	margin-bottom: map-get($margins, 'normal');
+}
+
+section {
+	padding: $padding-section 0;
+}

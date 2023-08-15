@@ -1,0 +1,29 @@
+@use 'sass:math';
+
+@for $i from 1 through $typography-max {
+	// Atom likes to incorrectly parse this, so I'm using a variable for 'h' to get around it
+	h#{$i} {
+		$fsize: nth($typography-headings, $i);
+		margin-bottom: 2rem;
+		font-size: $fsize + rem;
+		font-weight: 300;
+		line-height: 1 + math.div($i, 15);
+
+		// modifiers to change h# sizes, b/c screen readers prefer a nice hierarchy
+		&.t-fsize-smallest {
+			font-size: ($fsize * 0.5) + rem;
+		}
+
+		&.t-fsize-smaller {
+			font-size: ($fsize * 0.8) + rem;
+		}
+
+		&.t-fsize-larger {
+			font-size: ($fsize * 1.2) + rem;
+		}
+
+		&.t-fsize-largest {
+			font-size: ($fsize * 1.5) + rem;
+		}
+	}
+}

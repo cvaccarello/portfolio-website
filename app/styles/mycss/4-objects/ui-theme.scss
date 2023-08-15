@@ -1,0 +1,18 @@
+// namespace: 'ui-theme'
+
+.ui-theme {
+	background-color: $color-darkblue;
+	color: $color-white;
+}
+
+.ui-theme-inverted {
+	background-color: $color-darkwhite;
+	color: $color-gray;
+
+	@for $i from 1 through $typography-max {
+		// Atom likes to incorrectly parse this, so I'm using a variable for 'h' to get around it
+		#{'h'}#{$i} {
+			color: $color-blue;
+		}
+	}
+}

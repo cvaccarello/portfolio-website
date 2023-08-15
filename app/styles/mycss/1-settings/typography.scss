@@ -1,0 +1,9 @@
+// calculate and remember font-sizes for h1-h6 tags
+$typography-headings: ();
+$typography-max: 6;
+
+@for $i from 1 through 6 {
+	$count: 6 - $i + 1; // reverse so that h1 is larger
+	$fsize: (0.5 + ($count * 0.7));
+	$typography-headings: append($typography-headings, $fsize);
+}

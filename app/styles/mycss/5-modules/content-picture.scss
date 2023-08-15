@@ -1,0 +1,44 @@
+// namespace: "ci-combo"
+
+$ci-image-width: 450px;
+
+.ci-combo-container {
+	display: block;
+
+	@include breakpoint($bp-l) {
+		display: table;
+	}
+}
+
+.ci-combo-image {
+	margin: auto;
+	width: 100%;
+
+	@include breakpoint($bp-s) {
+		width: auto;
+	}
+
+	@include breakpoint($bp-l) {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.ci-combo-content {
+	padding: 5px 5px 20px;
+
+	@include breakpoint($bp-s) {
+		padding: 20px 20px 40px;
+	}
+
+	@include breakpoint($bp-l) {
+		padding: 20px 20px 20px 50px;
+		margin-left: $ci-image-width;
+	}
+
+	// to better align images, last children with margin-bottom need to have that margin removed
+	p:last-child {
+		margin: 0;
+	}
+}

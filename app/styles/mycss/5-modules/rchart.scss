@@ -1,0 +1,30 @@
+// namespace: 'rchart'
+
+// modifier for a group of responsive charts
+.rchart-container {
+	@extend .u-justify;
+	text-align: center;
+
+	@include breakpoint($bp-xl) {
+		text-align: justify;
+	}
+
+	.rchart-box {
+		@extend .u-justify-inline-block;
+		padding: 20px 40px 0 40px;
+
+		&:last-child {
+			padding: 0;
+		}
+
+		@include breakpoint($bp-xl) {
+			padding: 20px 10px 0 10px;
+		}
+	}
+
+	.rchart-label {
+		font-size: 1.8rem;
+		font-weight: normal;
+		text-align: center;
+	}
+}

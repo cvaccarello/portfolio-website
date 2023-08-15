@@ -1,7 +1,12 @@
-{{page-title "PortfolioWebsite"}}
 
-{{! The following component displays Ember's default welcome message. }}
-<WelcomePage />
-{{! Feel free to remove this! }}
+{{page-title "Portfolio"}}
 
-{{outlet}}
+<div {{did-insert this.rendered}}>
+	{{nav-header}}
+
+	<main>
+		{{outlet}}
+	</main>
+
+	{{nav-footer}}
+</div>

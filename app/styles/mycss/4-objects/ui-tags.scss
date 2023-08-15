@@ -1,0 +1,15 @@
+//
+
+.ui-tag-container {
+	margin-bottom: map-get($margins, 'normal');
+
+	.ui-tag {
+		background: #EEEEEE;
+		padding: 2px 5px;
+		margin: 3px 6px 3px 0;
+		font-size: 0.8em;
+		border: 1px solid #E2E2E2;
+		border-radius: 5px;
+		display: inline-block;
+	}
+}

@@ -1,0 +1,52 @@
+// namespace: 'ui-card'
+
+.ui-card {
+	background-color: $color-white;
+	padding: $padding-section;
+	margin-bottom: map-get($margins, 'largest');
+	box-shadow: $box-shadow-dark;
+	overflow: hidden;
+}
+
+.ui-card-title {
+	background: #EEEEEE;
+	padding: 15px $padding-section;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ui-card-footer {
+	padding: 10px 0;
+}
+
+.ui-card-image-wrapper {
+	max-height: 230px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		display: block;
+	}
+}
+
+.ui-card-footer {
+	text-align: center;
+}
+
+
+// modified version of ui-card so that padding can be added inside, rather then outside (helps with "hero" like backgrounds and such)
+.ui-card-hero-wrapper {
+	padding: 0;
+
+	.ui-card-body,
+	.ui-card-footer {
+		overflow: hidden;
+		padding: 0 $padding-section;
+		text-overflow: ellipsis;
+	}
+
+	.ui-card-footer {
+		padding: 10px 20px;
+		margin-bottom: map-get($margins, 'normal');
+	}
+}

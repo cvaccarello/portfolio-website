@@ -1,0 +1,33 @@
+.site-header {
+	height: 130px;
+	$padding: 15px;
+	overflow: auto; // clear fix
+
+	ul {
+		padding: 0 $padding;
+	}
+
+	a, li {
+		display: inline-block;
+	}
+
+	a {
+		padding: $padding;
+		color: rgba($color-white, 0.95);
+		text-decoration: none;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $color-white;
+			text-decoration: underline;
+		}
+	}
+}
+
+.site-header-background {
+	position: absolute;
+	background: linear-gradient(transparent 40%, $color-darkblue), transparent url('/images/backgrounds/main.png') 0 bottom repeat;
+	width: 100%;
+	height: 350px;
+	z-index: -1;
+}

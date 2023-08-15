@@ -1,0 +1,88 @@
+
+<div id="home-page" {{did-insert this.rendered}} {{will-destroy this.remove}}>
+	<!-- ABOUT ME -->
+	<section>
+		<div class="container">
+			<div class="ci-combo-container">
+				<div class="hp-content ci-combo-content">
+					<header>
+						<h1 class="hp-who-am-i t-shadow t-margin-smallest">Who Am I?</h1>
+						<div class="hp-me t-shadow">CHRIS VACCARELLO</div>
+						<div class="hp-profession t-shadow">Lead Full Stack Node Developer</div>
+					</header>
+
+					<hr/>
+
+					<h2 class="t-fsize-smallest t-margin-smallest">About Me</h2>
+					<p>The objective of this site is to highlight who I am, and provide an opportunity for employment. I am looking to expand my knowledge and skills by adding value to an organization.  I would describe myself as being very self-motivated and eager to learn.</p>
+					<p>On a more personal note, I enjoy reading articles on space, technology, and video games.  When I have free time, I like to either play video games, or create them.</p>
+					<a class="btn btn-primary btn-large" href="Resume.pdf">{{fa-icon "download"}} Resume (.pdf)</a>
+				</div>
+				<img class="hp-image ci-combo-image" src="images/me.png"/>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- SKILLS -->
+	<section class="ui-theme-inverted">
+		<div class="container">
+			<h2 class="hp-title t-fsize-smaller">My Skills</h2>
+			<p class="u-text-center">The following is a list of what I feel are my strongest skills, rating from 1-10, where 10 is my most knowledgeable.</p>
+
+			<div class="rchart-container">
+				<div class="hp-chart-languages rchart-box">
+					<label class="rchart-label">Languages</label>
+					{{ember-chart type='radar' data=@model.my_skills.[0] options=@model.my_skills.[0].options width=260 height=260}}
+				</div>
+				<div class="hp-chart-frameworks rchart-box">
+					<label class="rchart-label">Libraries</label>
+					{{ember-chart type='radar' data=@model.my_skills.[1] options=@model.my_skills.[1].options width=260 height=260}}
+				</div>
+				<div class="hp-chart-tools rchart-box">
+					<label class="rchart-label">Tools</label>
+					{{ember-chart type='radar' data=@model.my_skills.[2] options=@model.my_skills.[2].options width=260 height=260}}
+				</div>
+				<div class="rchart-box"><!-- used to justify above inline-block elements --></div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- PROFESSIONAL EXPERIENCES -->
+	<section class="parallax-container-outer">
+		<!-- parallax clouds -->
+		<div class="parallax-container-inner">
+			<div class="parallax-clouds cloud-type-001" data-bottom-top="background-position: 700px 0px, -400px 300px;" data-top-bottom="background-position: 700px 1000px, -400px 1500px;"></div>
+			<div class="parallax-clouds cloud-type-002" data-bottom-top="background-position: 0px 500px, 150px 970px;" data-top-bottom="background-position: 0px 2800px, 150px 2500px;"></div>
+			<div class="parallax-clouds cloud-type-003" data-bottom-top="background-position: 500px 400px, -800px -500px;" data-top-bottom="background-position: 500px 1800px, -800px 1200px;"></div>
+		</div>
+
+		<!-- parallax planets -->
+		<div class="parallax-container-inner">
+			<div class="hp-planet hp-planet-001" data--400-bottom-top="margin-top: 250px;" data--100-top-bottom="margin-top: 50px;"></div>
+
+			<!-- "invisible" planet that mirrors planet-001 so that the moon can move properly with the parallax skrollr plugin -->
+			<div class="hp-planet hp-planet-002" data--400-bottom-top="margin-top: 250px; transform: rotate(360deg);" data--100-top-bottom="margin-top: 50px; transform: rotate(100deg);">
+				<div class="hp-moon"></div>
+			</div>
+
+			<div class="hp-planet hp-planet-003" data-bottom-top="margin-bottom: 0px;" data-top-bottom="margin-bottom: 200px;"></div>
+		</div>
+
+		<!-- parallax ship & particle effect -->
+		<div class="parallax-container-inner">
+			<div class="hp-ship hp-ship-001" data-bottom-top="margin-bottom: 0px;" data-top-bottom="margin-bottom: 1500px;">
+				<div class="hp-engine"></div>
+			</div>
+		</div>
+
+		<div class="container">
+			<h2 class="hp-title t-fsize-smaller">My History</h2>
+
+			<HistoryBar @model={{@model.my_history}} @h1="h3" @h2="h4" @h3="h5"></HistoryBar>
+		</div>
+
+		<div class="hp-planet-earth"><div class="hp-planet-earth-image"></div></div>
+	</section>
+</div>

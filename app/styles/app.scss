@@ -1,0 +1,33 @@
+// Using a cross between SMACSS, ITCSS, and OOCSS principles, with a bit of customization to better match this project
+// I call this process "MYCSS", b/c ultimately it's whatever works best for you and your system
+// reference: http://csswizardry.net/talks/2014/11/itcss-dafed.pdf
+// reference: http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528
+// reference: https://smacss.com/book/categorizing
+
+// Libs:		Outside libraries which generally are customized a bit from their original version
+@import 'libs/index';
+
+// Settings:	Global variables, config switches
+@import 'mycss/1-settings/index';
+
+// Tools:		Default mixins, functions, and utility classes
+@import 'mycss/2-tools/index';
+
+// NOTE:  		Skipped ITCSS "Generic" b/c I don't really have use for "wide-reaching styles" other than blanket box-sizing, which I've just put in base
+
+// Base:		Unclassed HTML elements
+@import 'mycss/3-base/index';
+
+// Objects:		Cosmetic-free Patterns, Layouts, Wrappers, Containers, etc.  These are like SMACSS Layout Rules.
+@import 'mycss/4-objects/index';
+
+// Modules:		Chunks of small reusable UI classes (not to be confused with ember components, which are imported below as "pods")
+@import 'mycss/5-modules/index';
+
+// NOTE:  		Skipped ITCSS "Trumps" as I don't need those for this project (nothing needs overrided with "!important")
+
+// Pods:		Styles unique to Ember Components/Pods
+@import "pods";
+
+// Pages:		Page specific styles, not reusable
+@import 'pages/index';

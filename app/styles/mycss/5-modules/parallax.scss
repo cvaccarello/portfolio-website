@@ -1,0 +1,35 @@
+.parallax-container-outer {
+	position: relative;
+	overflow: hidden;
+}
+
+.parallax-container-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.parallax-clouds {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: transparent 0 0 repeat;
+	background-image: url('/images/backgrounds/Cloud01.png'), url('/images/backgrounds/Cloud01.png');
+	background-position: 500px 0, -400px 700px;
+	width: 100%;
+	height: calc(100% + 560px);
+
+	&.cloud-type-001 {
+		opacity: 0.55;
+	}
+
+	&.cloud-type-002 {
+		opacity: 0.25;
+	}
+
+	&.cloud-type-003 {
+		opacity: 0.35;
+	}
+}

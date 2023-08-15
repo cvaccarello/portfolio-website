@@ -1,0 +1,150 @@
+// styles unique to the home page layout
+#home-page {
+	// just some customized tweaks to make the page look better
+	.hp-content {
+		.hp-who-am-i {
+			font-size: 1.8rem;
+			line-height: 1.2;
+		}
+
+		.hp-me {
+			font-size: nth($typography-headings, 2) * 1.05 + rem;
+			line-height: 1.0;
+			margin: 0;
+		}
+
+		.hp-profession {
+			font-size: nth($typography-headings, 4) + rem;
+			line-height: 1.1;
+			margin: 0;
+		}
+	}
+
+	// remove natural space on image tag, so that it sits on the line below
+	.hp-image {
+		display: block;
+		margin-bottom: -$padding-section;
+	}
+
+	.hp-title {
+		text-align: center;
+	}
+
+	.hp-chart-languages {
+		color: $color-purple;
+	}
+
+	.hp-chart-frameworks {
+		color: $color-blue;
+	}
+
+	.hp-chart-tools {
+		color: $color-green;
+	}
+
+
+	.hp-planet {
+		position: absolute;
+		opacity: 0.6;
+
+		@include breakpoint($bp-s) {
+			opacity: 1;
+		}
+	}
+
+	.hp-planet-001 {
+		$planet001-size: 264px;
+		top: 200px;
+		right: 5%;
+		margin-right: -140px;
+		background: transparent url('/images/planets/planet001.png') 0 0 no-repeat;
+		width: $planet001-size;
+		height: $planet001-size;
+	}
+
+	.hp-planet-002 {
+		@extend .hp-planet-001;
+		background: none;
+
+		.hp-moon {
+			$planet002-size: 78px;
+			position: absolute;
+			top: -($planet002-size * 0.5);
+			right: -($planet002-size * 0.5);
+			background: transparent url('/images/planets/planet002.png') 0 0 no-repeat;
+			width: $planet002-size;
+			height: $planet002-size;
+		}
+	}
+
+	.hp-planet-003 {
+		$planet003-size: 325px;
+		bottom: 600px;
+		left: 8%;
+		margin-left: -30px;
+		background: transparent url('/images/planets/planet003.png') 0 0 no-repeat;
+		width: $planet003-size;
+		height: $planet003-size;
+	}
+
+	.hp-planet-earth {
+		position: relative;
+		top: $padding-section;
+		width: 100%;
+		height: 560px;
+		overflow: hidden;
+	}
+
+	.hp-planet-earth-image {
+		$saturated-blue: saturate($color-blue, 20%);
+		$atmosphere: lighten($saturated-blue, 15%);
+		$atmosphere2: lighten($saturated-blue, 30%);
+		$atmosphere3: lighten($saturated-blue, 45%);
+
+		position: relative;
+		top: 100px;
+		left: 50%;
+		margin-left: -1000px;
+		width: 2000px;
+		height: 1400px;
+		border-radius: 200%;
+		background: transparent url('/images/backgrounds/earth.png') -320vw -30px repeat-x;
+		box-shadow: 0 3px 30px rgba($atmosphere, 1), 0 3px 20px rgba($atmosphere3, 0.9), 0 3px 85px rgba($atmosphere3, 0.9), inset 0 5px 80px rgba($atmosphere2, 0.65);
+		border: 1px solid $atmosphere3;
+	}
+
+
+	.hp-ship {
+		position: absolute;
+		opacity: 0.6;
+
+		@include breakpoint($bp-s) {
+			opacity: 1;
+		}
+	}
+
+	.hp-ship-001 {
+		bottom: 1000px;
+		left: 5%;
+		margin-left: -100px;
+		background: transparent url('/images/ships/ship001.png') 0 0 no-repeat;
+		width: 148px;
+		height: 257px;
+
+		.hp-engine {
+			position: absolute;
+			bottom: 50px;
+			left: 50%;
+		}
+	}
+
+}
+
+
+// particles
+.hp-star-001 {
+	background: transparent url('/images/particles/star002.png') 0 0 no-repeat;
+	width: 15px;
+	height: 15px;
+	z-index: -1;
+}

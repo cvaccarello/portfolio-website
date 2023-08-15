@@ -1,0 +1,39 @@
+// justified inline-block elements
+.u-justify {
+	text-align: justify;
+
+	// inline-block element should break to "block" form at small "mobile" resolutions
+	.u-justify-inline-block {
+		text-align: center;
+		display: block;
+
+		@include breakpoint($bp-s) {
+			display: inline-block;
+		}
+
+		&:last-child {
+			width: 100%;
+		}
+	}
+}
+
+.u-pull-right {
+	float: right;
+}
+
+.u-pull-left {
+	float: left;
+}
+
+.u-no-select {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
+
+.u-text-center {
+	text-align: center;
+}
