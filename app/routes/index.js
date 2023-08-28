@@ -169,8 +169,8 @@ var my_history = [
 			to: 2007,
 		},
 		accomplishments: [
-			'Started studying C++, PHP, Javascript, HTML, & CSS.',
 			'Studied QBasic freshman year',
+			'Started studying C++, PHP, Javascript, HTML, & CSS.',
 			'Created an educational HTML and JavaScript board game; this game taught Anglo-Saxon literature and medieval culture.',
 		],
 	},
