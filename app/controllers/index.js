@@ -8,19 +8,21 @@ export default class Home extends Controller {
 		this.$ship = $('.hp-ship-001');
 		this.ship_height = this.$ship.outerHeight();
 
-		this.MyParticleEmitter = Ember.ParticleSystem.addEmitter({
-			id: 'ship-engine--stars',
-			max_particles: 100,
-			emit_delay: 10,
-			element: this.$ship.find('.hp-engine'),
-			direction: { min: 240, max: 300 },
-			particle: {
-				append_to: $('body > div'),
-				template: '<div class="hp-star-001"></div>',
-				time_to_live: 1000,
-				speed: 200,
-			},
-		});
+		this.MyParticleEmitter = Ember.ParticleSystem.addEmitter(
+			new ParticleEmitter({
+				id: 'ship-engine--stars',
+				max_particles: 100,
+				emit_delay: 10,
+				element: this.$ship.find('.hp-engine'),
+				direction: { min: 180 - 40, max: 180 + 40 },
+				particle: {
+					append_to: $('body > div'),
+					template: '<div class="hp-star-001"></div>',
+					time_to_live: 1200,
+					speed_amt: 130,
+				},
+			})
+		);
 
 		this.onScrollParticles = this.emitParticlesOnScroll.bind(this);
 
@@ -46,7 +48,7 @@ export default class Home extends Controller {
 			ship_pos_on_screen <= screen.height &&
 			ship_pos_on_screen >= 0 - this.ship_height
 		) {
-			this.MyParticleEmitter.trigger(30);
+			this.MyParticleEmitter.trigger(50);
 		}
 
 		this.scroll_amt = scroll;

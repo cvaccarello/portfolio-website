@@ -19,7 +19,7 @@ module.exports = function (defaults) {
 		development: 'node_modules/skrollr/src/skrollr.js',
 	});
 
-	app.import('public/ParticleSystem.js');
+	app.import('node_modules/sparkle/dist/particle-system.min.js');
 
 	return app.toTree();
 };
