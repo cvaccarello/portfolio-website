@@ -14,9 +14,10 @@
 			<a name="contact-me"></a>
 			<div class="nav-footer-h1">Contact Me</div>
 			<ul>
-				<li>{{fa-icon "map-marker" fixedWidth=true}} Pittsburgh, PA</li>
-				<li>{{fa-icon "envelope-o" fixedWidth=true}} cvaccarello2016@gmail.com</li>
-				<li>{{fa-icon "mobile" fixedWidth=true}} (724) 713-1000</li>
+				{{! https://fontawesome.com/search?q=map&o=r&m=free&s=solid }}
+				<li><FaIcon @icon="location-dot" @fixedWidth={{true}}/> Pittsburgh, PA</li>
+				<li><FaIcon @icon="envelope" @fixedWidth={{true}}/> cvaccarello2016@gmail.com</li>
+				<li><FaIcon @icon="mobile-screen" @fixedWidth={{true}}/> (724) 713-1000</li>
 			</ul>
 		</div>
 	</div>
