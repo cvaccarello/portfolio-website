@@ -10,7 +10,6 @@ export default class HistoryBar extends Component {
 		super(...arguments);
 		var This = this;
 		var data = this.args.model;
-		console.log(data);
 
 		// sort data such the most recent activity is always first
 		data.sort(function (a, b) {
