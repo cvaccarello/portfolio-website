@@ -25,3 +25,6 @@
 
 # Webstorm
 .idea
+
+# src assets (leaving out for repo optimization & security)
+/public/**/src
