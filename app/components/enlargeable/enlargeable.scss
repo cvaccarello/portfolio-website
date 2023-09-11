@@ -1,5 +1,11 @@
 @use 'sass:math';
 
+
+body:has(dialog[open]) {
+	overflow: hidden;
+}
+
+
 .enlarge-image {
 	width: 100%;
 	height: auto;
@@ -28,6 +34,8 @@
 		object-fit: contain;
 		display: block;
 		margin: auto;
+		// not sure why this is needed, but there's a weird 1px white bar on the right, seems connected to chrome and partial pixel calculations
+		background: black;
 	}
 
 	img {
