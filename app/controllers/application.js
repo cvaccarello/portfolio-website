@@ -5,12 +5,34 @@ import Ember from 'ember';
 export default class Home extends Controller {
 	constructor() {
 		super(...arguments);
-		let This = this;
 
 		// create particle system and save in Ember namespace
 		Ember.ParticleSystem = new ParticleSystem();
 
-		// initialize skrollr plugin
+		// need to set up this resize function so skrollr can update on resize
+		this.windowResize = function () {
+			Ember.s?.refresh();
+		};
+
+		// watch for screen resizing
+		$(window).on('resize', this.windowResize);
+	}
+
+	@action
+	async rendered() {
+		let This = this;
+
+		await new Promise((resolve) => {
+			// once the home page profile image loads, we need to update skrollr b/c of how it takes up dimension
+			$('.hp-image').one('load', () => {
+				// TODO: some day look into why we need to initialize the skrollr on the next tick, if you are pre-scrolled when it initializes and you don't have this, things get messed up for some reason
+				setTimeout(resolve, 0);
+			});
+		});
+
+		let originalScrollPosition = $(document).scrollTop();
+
+		// initialize skrollr plugin (has to happen after ember.js html is appended to DOM
 		Ember.s = skrollr.init({
 			forceHeight: false,
 			constants: {
@@ -33,20 +55,11 @@ export default class Home extends Controller {
 			},
 		});
 
-		// need to set up this resize function so that the context of this class can be used
-		this.windowResize = function () {
-			Ember.s.refresh();
-		};
-
-		// watch for screen resizing
-		$(window).on('resize', this.windowResize);
-	}
-
-	@action
-	rendered() {
-		$('.hp-image').one('load', () => {
-			Ember.s.refresh();
-		});
+		// skrollr by default will try to reset scrolling back to the top, whereas ember tries to maintain where you are, the result is a fight to the death :P additionally skrollr has really weird mobile behavior due to apparent browser optimization issues on scroll, so this code is trying to play nice with everything
+		if (Ember.s.isMobile()) {
+			Ember.s.setScrollTop(originalScrollPosition, true);
+			$(document).scrollTop(0);
+		}
 	}
 
 	getRotationDegrees(obj) {

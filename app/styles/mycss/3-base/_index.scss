@@ -7,6 +7,8 @@ body {
 
 	> div {
 		width: 100%;
+		// perspective fixes chrome/skrollr issue with disappearing elements
+		perspective: 300px;
 	}
 }
 
