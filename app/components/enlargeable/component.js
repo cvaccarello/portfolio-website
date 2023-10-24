@@ -23,9 +23,9 @@ export default class Enlargeable extends Component {
 		this.$dialog.remove();
 
 		if (videoSrc) {
-			this.$dialog = $(`<dialog class="dialog-full-image"><div class="dialog-inner"><video poster="${imageSrc}" controls><source src="${videoSrc}" type="video/mp4"/></video></div></dialog>`).appendTo('body');
+			this.$dialog = $(`<dialog class="dialog-full-image"><video poster="${imageSrc}" controls><source src="${videoSrc}" type="video/mp4"/></video></dialog>`).appendTo('body');
 		} else {
-			this.$dialog = $(`<dialog class="dialog-full-image"><div class="dialog-inner"><img src="${imageSrc}" alt=""/></div></dialog>`).appendTo('body');
+			this.$dialog = $(`<dialog class="dialog-full-image"><img src="${imageSrc}" alt=""/></dialog>`).appendTo('body');
 		}
 
 		this.$dialog[0].showModal();
@@ -37,6 +37,7 @@ export default class Enlargeable extends Component {
 			}
 
 			this.$dialog[0].close();
+			this.$dialog.remove();
 			$(document).off('click', close);
 		};
 

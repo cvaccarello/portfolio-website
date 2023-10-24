@@ -1,0 +1,1404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Review Game</title>
+
+
+<script language="JavaScript" src="Other/referencesheet.js" type="text/javascript">
+</script>
+<script language="JavaScript" src="Other/timer.js" type="text/javascript">
+</script>
+
+
+
+
+<script type="text/javascript">
+<!--
+//PRE-LOADS ALL IMAGES
+
+
+Image1 = new Image(50,50)
+Image1.src = "Images/1.gif"
+
+Image2 = new Image(60,100)
+Image2.src = "Images/card_lose100dollars.gif"
+
+Image3 = new Image(60,100)
+Image3.src = "Images/card_lose200dollars.gif"
+
+Image4 = new Image(60,100)
+Image4.src = "Images/card_back1space.gif"
+
+Image5 = new Image(60,100)
+Image5.src = "Images/card_back2spaces.gif"
+
+Image6 = new Image(60,100)
+Image6.src = "Images/card_gotostart.gif"
+
+Image7 = new Image(60,100)
+Image7.src = "Images/card_collect100dollars.gif"
+
+Image8 = new Image(60,100)
+Image8.src = "Images/card_collect200dollars.gif"
+
+Image9 = new Image(60,100)
+Image9.src = "Images/card_ahead1space.gif"
+
+Image10 = new Image(60,100)
+Image10.src = "Images/card_ahead2spaces.gif"
+
+Image11 = new Image(50,50)
+Image11.src = "Images/2.gif"
+
+Image12 = new Image(50,50)
+Image12.src = "Images/3.gif"
+
+Image13 = new Image(50,50)
+Image13.src = "Images/4.gif"
+
+Image14 = new Image(50,50)
+Image14.src = "Images/5.gif"
+
+Image15 = new Image(50,50)
+Image15.src = "Images/6.gif"
+
+
+
+//END PRE-LOAD
+
+var counter = 0;
+var pieceposition = 1;			//Space the players Piece is on
+var q_a_counter = 0;			//Question and Answer counter for their corresponding Array
+var money = 0;			//stores money won and lost during game
+var playerpiece = 0;
+
+var bcards = new Array("Images/card_lose100dollars.gif", "Images/card_lose200dollars.gif", "Images/card_back1space.gif", "Images/card_back2spaces.gif", "Images/card_gotostart.gif");
+var gcards = new Array("Images/card_collect100dollars.gif", "Images/card_collect200dollars.gif", "Images/card_ahead1space.gif", "Images/card_ahead2spaces.gif");
+
+var goptionsgrendel = new Array("You've filled your quench of blood by killing Hrothgar's soldiers", "You survived the attacking bull", "The Dragon gives you advice", "Love replaces your hunger for blood", "You found a cave of gold");				//5 options
+var boptionsgrendel = new Array("Villagers attack you", "Beowulf has taken your arm", "Hrothgar's soldiers keep trying to kill you", "A trap has caught you in a tree", "Love blinded you as you walked into a trap");			//5 options
+
+var goptionsrobinhood = new Array("Common people have joined your and your cause", "You won the golden arrow contest", "The poor people thank you for your help", "Maid Myrian has fallen in love with you", "You found a cave of gold");				//5 options
+var boptionsrobinhood = new Array("You enter a contest in disguise, but you're discovered", "Your hand was broken and your unable to fight", "The rich have put out a reward on your head", "Your bow has broken", "Villagers have discovered that you are keeping some gold for yourself");				//5 options
+
+var goptionsknight = new Array("You've pulled the legendary sword from the stone", "King Arthur places you on his round table", "The King congratulates you on up holding the ulres of chivalry", "You rescued a damsel in distress");				//5 options
+var boptionsknight = new Array("You failed to protect Camelot", "You stole gold and now you are kicked out of the community", "Courtly Love distracts you from saving peoples lives", "You've grown too old to fight/defend anyone", "A dragon has seriously injured you");				//5 options
+
+var goptionsking = new Array("You've slain the dragon", "Your people have become incredibly loyal to you", "You've defended Camelot from Malagant", "A neighboring nation has joined forces with you");			//5 options
+var boptionsking = new Array("Your Queen is captured by Malagant", "In your old age, you accidentaly break your hip", "You've lost Excalibur!", "There's a revolt in your city", "A riot kills 5 soldiers");				//5 options
+
+var goptionsqueen = new Array("Your husband protects you from the dragon", "You defended yourself from an assassination attempt", "You defended an attack on your lands", "The people have learned to respect you", "Your beauty knows no bounds.  It has attracted many nations to become allies");				//5 options
+var boptionsqueen = new Array("You're taken prisoner", "You've lost your most trusted friend", "Your husband has been killed in battle", "Your kingdom has fallen under Malagant's control");				//5 options
+
+var goptionssquire = new Array("You're almost a knight, keep training!", "You've won your first real battle", "You're young and agile so you've avoided being hurt in your training", "Your King has given you a precious sword to fight with", "While training, you fall in love and are married");				//5 options
+var boptionssquire = new Array("While training you lose a finger", "Courtly Love destroys your life", "Your village was attacked while you were out training", "You ran away in the midst of battle");				//5 options
+
+var goptionschris = new Array("You save 5 people from a burning building", "You found the Fountain of Youth!", "You found a cave full of gold", "You get to be god for a day", "A genie grants you 3 wishes");				//5 options
+var boptionschris = new Array("You lost the ones you love", "You've created many enemies", "You were trapped in a burning building and are badly burned", "A dragon has taken your arm", "Your King has died and without him you're lost");				//5 options
+
+
+
+
+
+var dice = new Array("Images/0.gif", "Images/1.gif", "Images/2.gif", "Images/3.gif", "Images/4.gif", "Images/5.gif", "Images/6.gif");
+var timer = 1;
+var position1 = 1;
+var position2 = 0;
+var check = 0;		//Music check (Value for OFF and ON)
+
+var minigamecheck = 0;					//check for start and end of mini game
+var minigameclickcounter = 0;				//counter for number of clicks
+var seconds = 0;				 	 					//seconds in game
+var minigamecheck2 = 0;				//check to activate availability of game
+var spacecounter = 1;	 	 //start on space 1
+var yourposition = 0;		 //space of mouse on board
+var clickedstart = 0;		 //begin when click start
+
+
+var moneyperspace = 0;							//Money per space (changes for each piece)
+var speed = 0;											//Speed of each peice
+
+function piecechoice1()
+{
+	playerpiece = "Images/king_piece.gif";
+	moneyperspace = 25;
+	speed = 2;
+
+	return startgame();
+}
+function piecechoice2()
+{
+	playerpiece = "Images/queen_piece.gif";
+	moneyperspace = 25;
+	speed = 2;
+
+	return startgame();
+}
+function piecechoice3()
+{
+	playerpiece = "Images/knight_piece.gif";
+	moneyperspace = 15;
+	speed = 2;
+
+	return startgame();
+}
+function piecechoice4()
+{
+	playerpiece = "Images/squire_piece.gif";
+	moneyperspace = 10;
+	speed = 4;
+
+	return startgame();
+}
+function piecechoice5()
+{
+	playerpiece = "Images/rhood_piece.gif";
+	moneyperspace = 5;
+	speed = 6;
+
+	return startgame();
+}
+function piecechoice6()
+{
+	playerpiece = "Images/grendel_piece.gif";
+	moneyperspace = 10;
+	speed = 8;
+
+	return startgame();
+}
+function piecechoice7()
+{
+	playerpiece = "Images/ChrisGhost.gif";
+	moneyperspace = 20;
+	speed = 5;
+
+	return startgame();
+}
+
+
+
+
+
+
+function checkgame()
+{
+	if(document.game.disp2.value != "00:00" )
+	{
+  
+  	if(document.game.answer.value.toLowerCase() == storeanswers[q_a_counter].toLowerCase() && document.game.question.value == storequestions[q_a_counter])
+  	{
+    	
+  		Move();					//MOVES PIECE TO NEW SPACE
+  		
+    	q_a_counter++;
+    	document.game.question.value = storequestions[q_a_counter];
+  		document.game.answer.value = "";
+  	}
+  	else if(document.game.answer.value.toLowerCase() != storeanswers[q_a_counter].toLowerCase())
+  	{
+  		alert("incorrect");		//outputs incorrect if typed answer is wrong
+  	}
+  	else
+  	{
+  		alert("OMG!!@?#! ERROR!! PLEASE NOTIFY CHRIS!!!!!");		//Error Check
+  	}
+  	
+  	
+  	
+  	
+  	
+  	if(secondvalue == 2 || secondvalue == 5 || secondvalue == 12 || secondvalue == 16 || secondvalue == 24 || secondvalue == 25 || secondvalue == 33 || secondvalue == 39 || secondvalue == 42)			//CHECK TO SEE IF PIECE LANDS ON A POSITIVE MONEY SPACE
+  	{
+  			setTimeout('money+=50;', delaytimer+100);				//add 50 dollars
+  			setTimeout('document.game.money.value=money;', delaytimer+100);				//add 50 dollars
+  	}
+  	else if(secondvalue == 6 || secondvalue == 10 || secondvalue == 15 || secondvalue == 19 || secondvalue == 22 || secondvalue == 29 || secondvalue == 31 || secondvalue == 40 || secondvalue == 44 || secondvalue == 45)		//CHECK TO SEE IF PIECE LANDS ON A NEGATIVE MONEY SPACE
+  	{
+  			setTimeout('money-=50;', delaytimer+100);				//subtract 50 dollars
+  			setTimeout('document.game.money.value=money;', delaytimer+100);				//subtract 50 dollars
+  	}
+  	
+  	
+  	if(secondvalue == 4 || secondvalue == 7 || secondvalue == 13 || secondvalue == 17 || secondvalue == 21 || secondvalue == 28 || secondvalue == 34 || secondvalue == 36 || secondvalue == 38 || secondvalue == 41 || secondvalue == 47)	//CHECK TO SEE IF PIECE LANDS ON DRAW A CARD
+  	{
+  		setTimeout('drawcard();', delaytimer);
+  	}
+		
+	if(secondvalue == 8 || secondvalue == 18 || secondvalue == 23 || secondvalue == 43)
+	{
+	 	setTimeout('startminigame();', delaytimer);
+	}
+  	
+  	document.game.answer.focus();
+	}
+	else if(document.game.question.value == "Game Over")
+	{
+		alert("Sorry your game is over");
+	}
+
+}
+
+
+
+
+
+function Move()
+{
+ 	delaytimer = 400;
+
+	do
+	{
+		pieceposition = pieceposition + 1;
+		firstvalue = pieceposition-1;
+		secondvalue = pieceposition;			//space the peice landed on
+
+		if(firstvalue == "1")
+		{
+			setTimeout('document.space1.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space2.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "2")
+		{
+			setTimeout('document.space2.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space3.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "3")
+		{
+			setTimeout('document.space3.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space4.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "4")
+		{
+			setTimeout('document.space4.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space5.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "5")
+		{
+			setTimeout('document.space5.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space6.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "6")
+		{
+			setTimeout('document.space6.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space7.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "7")
+		{
+			setTimeout('document.space7.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space8.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "8")
+		{
+			setTimeout('document.space8.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space9.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "9")
+		{
+			setTimeout('document.space9.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space10.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "10")
+		{
+			setTimeout('document.space10.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space11.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "11")
+		{
+			setTimeout('document.space11.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space12.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "12")
+		{
+			setTimeout('document.space12.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space13.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "13")
+		{
+			setTimeout('document.space13.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space14.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "14")
+		{
+			setTimeout('document.space14.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space15.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "15")
+		{
+			setTimeout('document.space15.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space16.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "16")
+		{
+			setTimeout('document.space16.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space17.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "17")
+		{
+			setTimeout('document.space17.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space18.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "18")
+		{
+			setTimeout('document.space18.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space19.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "19")
+		{
+			setTimeout('document.space19.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space20.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "20")
+		{
+			setTimeout('document.space20.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space21.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "21")
+		{
+			setTimeout('document.space21.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space22.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "22")
+		{
+			setTimeout('document.space22.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space23.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "23")
+		{
+			setTimeout('document.space23.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space24.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "24")
+		{
+			setTimeout('document.space24.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space25.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "25")
+		{
+			setTimeout('document.space25.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space26.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "26")
+		{
+			setTimeout('document.space26.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space27.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "27")
+		{
+			setTimeout('document.space27.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space28.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "28")
+		{
+			setTimeout('document.space28.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space29.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "29")
+		{
+			setTimeout('document.space29.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space30.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "30")
+		{
+			setTimeout('document.space30.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space31.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "31")
+		{
+			setTimeout('document.space31.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space32.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "32")
+		{
+			setTimeout('document.space32.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space33.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "33")
+		{
+			setTimeout('document.space33.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space34.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "34")
+		{
+			setTimeout('document.space34.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space35.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "35")
+		{
+			setTimeout('document.space35.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space36.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "36")
+		{
+			setTimeout('document.space36.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space37.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "37")
+		{
+			setTimeout('document.space37.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space38.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "38")
+		{
+			setTimeout('document.space38.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space39.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "39")
+		{
+			setTimeout('document.space39.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space40.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "40")
+		{
+			setTimeout('document.space40.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space41.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "41")
+		{
+			setTimeout('document.space41.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space42.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "42")
+		{
+			setTimeout('document.space42.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space43.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "43")
+		{
+			setTimeout('document.space43.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space44.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "44")
+		{
+			setTimeout('document.space44.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space45.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "45")
+		{
+			setTimeout('document.space45.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space46.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "46")
+		{
+			setTimeout('document.space46.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space47.src = playerpiece;', delaytimer);
+		}
+		else if(firstvalue == "47")
+		{
+			setTimeout('document.space47.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space2.src = playerpiece;', delaytimer);
+			pieceposition = 2;			//continues loop, but skips space 1 when it lands on 47
+		}
+		else
+		{
+			setTimeout('document.space47.src = "Images/spacer.gif";', delaytimer+1);
+			setTimeout('document.space2.src = playerpiece;', delaytimer);
+			pieceposition = 2;			//continues loop, but skips space 1 when it lands on 47
+		}
+		
+		setTimeout('money+=moneyperspace;', delaytimer);			//adds 10 dollars to money total each space moved
+		setTimeout('document.game.money.value = money;', delaytimer);		//output money
+		delaytimer = delaytimer+400;
+		counter++;
+	}while(position1 > counter);
+	
+  counter = 0;	
+}
+
+
+function Roll()
+{
+	if(document.game.answer.value.toLowerCase() == storeanswers[q_a_counter].toLowerCase())
+	{
+		document.card.src = "Images/card_back.gif";		//reset card to back
+		document.game.giveanswer.value = "";				//clear given answer
+	
+    position1 = Math.floor(Math.random()*6+1);
+    document.Dice1.src = dice[position1];
+		position1 += speed;	 								 //adds a number of spaces to be moved (depends on each piece)
+    timer++;
+   
+    if(timer <= 10)
+    {
+    	setTimeout("Roll()", 10);
+    }
+    else if(timer > 10 && timer <= 17)
+    {
+    	setTimeout("Roll()", 30);
+    }
+    else if(timer > 17 && timer <= 22)
+    {
+    	setTimeout("Roll()", 90);
+    }
+    else if(timer > 22 && timer <= 25)
+    {
+    	setTimeout("Roll()", 270);
+    }
+    else if(timer > 25 && timer <= 26)
+    {
+    	setTimeout("Roll()", 810);
+    }
+    else
+    {
+    	timer = 0;
+  		return checkgame();
+    }
+	}
+	else if(document.game.question.value == "Game Over")
+	{
+		alert("Sorry your game is over");
+	}
+	else if(document.game.question.value != storequestions[q_a_counter] && document.game.question.value == "")
+	{
+		alert("You can't roll until you start the game.");	
+	}
+	else if(document.game.answer.value != storeanswers[q_a_counter])
+	{
+		alert("Incorrect");
+	}
+}
+
+
+
+
+function giveup()
+{
+  document.card.src = "Images/card_back.gif";		//reset card to back
+  document.game.giveanswer.value = "";				//clear given answer
+
+	if(document.game.question.value == storequestions[q_a_counter] && document.game.question.value != "Game Over")
+	{
+		document.game.giveanswer.value = storeanswers[q_a_counter];			//Gives answer
+		q_a_counter++;																	//Moves on to the next Question
+  	document.game.question.value = storequestions[q_a_counter];		//Outputs new question
+	}
+	else if(document.game.question.value == "" && document.game.question.value == "")
+	{
+		alert("You must first start the game");
+	}
+	else if(document.game.question.value == "Game Over")
+	{
+		alert("Sorry your game is over");
+	}
+	else
+	{
+		alert("You should atleast try to guess");	
+	}
+
+	document.game.answer.focus();
+}
+
+
+
+
+
+
+
+
+function drawcard()							//Draws a card randomly
+{
+  position2 = Math.floor(Math.random()*20+1);			//determines luck below
+
+  if(playerpiece=="Images/rhood_piece.gif")
+  {
+	 		percentChance = 15;									//75% chance to be good (15/20)
+  }
+  else if(playerpiece=="Images/king_piece.gif")
+  {
+	 		percentChance = 6;									//30% chance to be good (6/20)
+  }
+  else if(playerpiece=="Images/queen_piece.gif")
+  {
+	 		percentChance = 6;									//30% chance to be good (6/20)
+  }
+  else if(playerpiece=="Images/grendel_piece.gif")
+  {
+	 		percentChance = 3; 									//15% chance to be good (3/20)
+  }
+  else if(playerpiece=="Images/knight_piece.gif")
+  {
+	 		percentChance = 6;									//30% chance to be good (6/20)
+  }
+  else if(playerpiece=="Images/squire_piece.gif")
+  {
+	 		percentChance = 9;								  //45% chance to be good (9/20)
+  }
+  else if(playerpiece=="Images/ChrisGhost.gif")
+  {
+	 		percentChance = 10;									//50% chance to be good (10/20)
+  }
+
+	
+	if(position2 <= percentChance)									 //good outcome
+	{
+	  position2 = Math.floor(Math.random()*4+0);		//randomly selects a negative outcome
+
+		if(playerpiece=="Images/rhood_piece.gif")
+		{
+			alert(goptionsrobinhood[position2]);									//alerts outcome
+		}
+		else if(playerpiece=="Images/king_piece.gif")
+		{
+			alert(goptionsking[position2]);									//alerts outcome		
+		}
+		else if(playerpiece=="Images/queen_piece.gif")
+		{
+			alert(goptionsqueen[position2]);									//alerts outcome
+		}
+		else if(playerpiece=="Images/grendel_piece.gif")
+		{
+			alert(goptionsgrendel[position2]);									//alerts outcome		
+		}
+		else if(playerpiece=="Images/knight_piece.gif")
+		{
+			alert(goptionsknight[position2]);									//alerts outcome		
+		}
+		else if(playerpiece=="Images/squire_piece.gif")
+		{
+			alert(goptionssquire[position2]);									//alerts outcome
+		}
+		else if(playerpiece=="Images/ChrisGhost.gif")
+		{
+			alert(goptionschris[position2]);									//alerts outcome
+		}
+
+	  position2 = Math.floor(Math.random()*3+0);		//chooses a positive card for outcome
+	  document.card.src = gcards[position2];			//outputs card
+
+		if(position2 == 0)
+		{
+			money+=100;
+	  	document.game.money.value = money;		//output money
+		}
+		else if(position2 == 1)
+		{
+			money+=200;
+	  	document.game.money.value = money;		//output money
+		}
+		else if(position2 == 2)
+		{
+			position1=1;		//moves 1 space only!!
+			Move();
+		}
+		else if(position2 == 3)
+		{
+			position1=2;		//moves 2 spaces only!!
+			Move();
+		}	
+	}	
+	else				 																		 //bad outcome
+	{
+	  position2 = Math.floor(Math.random()*4+0);		//randomly selects a negative outcome
+
+		if(playerpiece=="Images/rhood_piece.gif")
+		{
+			alert(boptionsrobinhood[position2]);									//alerts outcome
+		}
+		else if(playerpiece=="Images/king_piece.gif")
+		{
+			alert(boptionsking[position2]);									//alerts outcome		
+		}
+		else if(playerpiece=="Images/queen_piece.gif")
+		{
+			alert(boptionsqueen[position2]);									//alerts outcome
+		}
+		else if(playerpiece=="Images/grendel_piece.gif")
+		{
+			alert(boptionsgrendel[position2]);									//alerts outcome		
+		}
+		else if(playerpiece=="Images/knight_piece.gif")
+		{
+			alert(boptionsknight[position2]);									//alerts outcome		
+		}
+		else if(playerpiece=="Images/squire_piece.gif")
+		{
+			alert(boptionssquire[position2]);									//alerts outcome
+		}
+		else if(playerpiece=="Images/ChrisGhost.gif")
+		{
+			alert(boptionschris[position2]);									//alerts outcome
+		}
+
+	  position2 = Math.floor(Math.random()*4+0);		//chooses a negative card for outcome
+	  document.card.src = bcards[position2];			//outputs card
+
+		if(position2 == 0)
+		{
+			money-=100;
+	  	document.game.money.value = money;		//output money
+		}
+		else if(position2 == 1)
+		{
+			money-=200;
+	  	document.game.money.value = money;		//output money
+		}
+		else if(position2 == 2)
+		{
+			pieceposition=pieceposition-2;		//moves back 1
+			counter=position1;					//loop in move() is stopped after 1 movement
+			money-=10;								//piece moves 1 space and you don't want to give them money for that movement
+			clearboard();		//clear board
+			Move();					//replace piece
+		}
+		else if(position2 == 3)
+		{
+			pieceposition=pieceposition-3;		//moves back 2
+			counter=position1;					//loop in move() is stopped after 1 movement
+			money-=10;								//piece moves 1 space and you don't want to give them money for that movement
+			clearboard();		//clear board
+			Move();					//replace piece
+		}		
+		else if(position2 == 4)
+		{
+			clearboard();		//clear board
+			document.space1.src = playerpiece;		//place piece on start
+			pieceposition = 1;								//set piece position to 1 (start space)
+		}
+		else
+		{
+				alert("Error");
+		}
+	}
+	
+	document.game.answer.focus();
+}
+
+
+
+
+
+
+
+
+function startgame()
+{
+  if(document.game.disp2.value == "30:00")
+  {
+  		Down();								//starts timer
+  }	
+
+	if(document.game.question.value != "Game Over")
+	{
+  	document.piece1.src = "Images/spacer.gif";
+  	document.piece2.src = "Images/spacer.gif";
+  	document.piece3.src = "Images/spacer.gif";
+  	document.piece4.src = "Images/spacer.gif";
+  	document.piece5.src = "Images/spacer.gif";
+  	document.piece6.src = "Images/spacer.gif";
+  
+  	
+  	document.space1.src = playerpiece;				//space 1 is set to the players chosen piece
+    document.card.src = "Images/card_back.gif";		//reset card to back
+    document.game.giveanswer.value = "";				//clear given answer
+  	document.game.answer.value = "";						//clear current answer
+  	
+  	q_a_counter = 0;			//Question and Answer counter for their corresponding Array
+    document.game.question.value = storequestions[q_a_counter];		//reset question showing
+    document.game.answer.value = "";		//clear the current answer
+  	money = 0;							//set money equal to 0
+  	document.game.money.value = money;		//output money
+  	counter = 0;
+  	pieceposition = 1;			//Space the players Piece is on
+    timer = 1;
+    position1 = 0;
+    position2 = 0;
+    document.Dice1.src = dice[position1];
+
+		minigamecheck = 0;					//check for start and end of mini game
+		minigameclickcounter = 0;				//counter for number of clicks
+		seconds = 0;				 	 					//seconds in game
+		minigamecheck2 = 0;				//check to activate availability of game
+		spacecounter = 1;	 	 //start on space 1
+		yourposition = 0;		 //space of mouse on board
+		clickedstart = 0;		 //begin when click start
+  	
+    document.game.roll.disabled = false;	 				//enables Roll button
+    document.game.give.disabled = false;	 				//enables Give up button
+
+  	clearboard(); 		//clears game board	
+	}
+	else if(document.game.question.value == "Game Over")
+	{
+		alert("Sorry your game is over");
+	}
+}
+
+
+function restartgame()
+{
+	if(confirm("Are you sure you want to restart your game?"))
+	{
+		if(document.game.question.value == "Game Over")
+		{
+      cmin2=30;			//reset time variable minutes
+      csec2=0;			//reset time variable seconds
+  		document.game.disp2.value = "30:00";			//reset time on board
+	  	clearboard(); 		//clears game board
+		}
+		else
+		{
+      cmin2=30;			//reset time variable minutes
+      csec2=0;			//reset time variable seconds
+  		document.game.disp2.value = "30:00";			//reset time on board
+			clearboard();
+		}
+
+  	document.piece1.src = "Images/king_piece.gif";
+  	document.piece2.src = "Images/queen_piece.gif";
+  	document.piece3.src = "Images/knight_piece.gif";
+  	document.piece4.src = "Images/squire_piece.gif";
+  	document.piece5.src = "Images/rhood_piece.gif";
+  	document.piece6.src = "Images/grendel_piece.gif";
+  
+    document.space1.src = "Images/spacer.gif";		//space 1 is set blank
+    document.card.src = "Images/card_back.gif";		//reset card to back
+    document.game.giveanswer.value = "";				//clear given answer
+  	document.game.answer.value = "";						//clear current answer
+  	
+		playerpiece = 0;
+  	q_a_counter = 0;			//Question and Answer counter for their corresponding Array
+  	document.game.question.value = storequestions[q_a_counter];		//reset question showing
+		document.game.answer.value = "";		//clear the current answer
+  	money = 0;							//resets money to 0
+  	document.game.money.value = money;		//output money
+  	counter = 0;
+  	pieceposition = 1;			//Space the players Piece is on
+    timer = 1;
+    position1 = 0;
+    position2 = 0;
+    document.Dice1.src = dice[position1];
+  	
+		minigamecheck = 0;					//check for start and end of mini game
+		minigameclickcounter = 0;				//counter for number of clicks
+		seconds = 0;				 	 					//seconds in game
+		minigamecheck2 = 0;				//check to activate availability of game
+		spacecounter = 1;	 	 //start on space 1
+		yourposition = 0;		 //space of mouse on board
+		clickedstart = 0;		 //begin when click start
+
+    document.game.roll.disabled = false;	 				//enables Roll button
+    document.game.give.disabled = false;	 				//enables Give up button
+	}
+}
+
+
+function clearboard()
+{
+	<!-- CLEAR GAME BOARD -->
+  document.space2.src = "Images/spacer.gif";
+  document.space3.src = "Images/spacer.gif";
+  document.space4.src = "Images/spacer.gif";
+  document.space5.src = "Images/spacer.gif";
+  document.space6.src = "Images/spacer.gif";
+  document.space7.src = "Images/spacer.gif";
+  document.space8.src = "Images/spacer.gif";
+  document.space9.src = "Images/spacer.gif";
+  document.space10.src = "Images/spacer.gif";
+  document.space11.src = "Images/spacer.gif";
+  document.space12.src = "Images/spacer.gif";
+  document.space13.src = "Images/spacer.gif";
+  document.space14.src = "Images/spacer.gif";
+  document.space15.src = "Images/spacer.gif";
+  document.space16.src = "Images/spacer.gif";
+  document.space17.src = "Images/spacer.gif";
+  document.space18.src = "Images/spacer.gif";
+  document.space19.src = "Images/spacer.gif";
+  document.space20.src = "Images/spacer.gif";
+  document.space21.src = "Images/spacer.gif";
+  document.space22.src = "Images/spacer.gif";
+  document.space23.src = "Images/spacer.gif";
+  document.space24.src = "Images/spacer.gif";
+  document.space25.src = "Images/spacer.gif";
+  document.space26.src = "Images/spacer.gif";
+  document.space27.src = "Images/spacer.gif";
+  document.space28.src = "Images/spacer.gif";
+  document.space29.src = "Images/spacer.gif";
+  document.space30.src = "Images/spacer.gif";
+  document.space31.src = "Images/spacer.gif";
+  document.space32.src = "Images/spacer.gif";
+  document.space33.src = "Images/spacer.gif";
+  document.space34.src = "Images/spacer.gif";
+  document.space35.src = "Images/spacer.gif";
+  document.space36.src = "Images/spacer.gif";
+  document.space37.src = "Images/spacer.gif";
+  document.space38.src = "Images/spacer.gif";
+  document.space39.src = "Images/spacer.gif";
+  document.space40.src = "Images/spacer.gif";
+  document.space41.src = "Images/spacer.gif";
+  document.space42.src = "Images/spacer.gif";
+  document.space43.src = "Images/spacer.gif";
+  document.space44.src = "Images/spacer.gif";
+  document.space45.src = "Images/spacer.gif";
+  document.space46.src = "Images/spacer.gif";
+  document.space47.src = "Images/spacer.gif";
+	<!-- END CLEAR GAME BOARD -->	
+	
+	document.game.answer.focus();
+}
+
+
+
+
+
+function music()						 	 //Turns on and off background music
+{
+ if(check == 0)								 //Turns music off
+  {
+    document.embeds[0].stop();
+    document.game.musicvalue.value = "Music off";
+		check = 1;								//check for music on or off
+  }
+	else												//Turns music on
+	{
+    document.embeds[0].play();
+    document.game.musicvalue.value = "Music on";
+		check = 0;								//check for music on or off
+	}
+}
+
+
+
+function handleEnter (field, event)		//checks if enter key is pressed
+{
+		var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+
+		if(document.game.roll.disabled == false)			//not playing a mini game
+		{
+    		if (keyCode == 13)					//code number for enter key
+    		{
+    			 Roll()
+    		}
+		}
+}
+// this function determines whether the event is the equivalent of the microsoft
+// mouseleave or mouseenter events.
+function isMouseLeaveOrEnter(e, handler)				 //used to help determine if mouse leaves table during pathgame() play
+{		
+	if (e.type != 'mouseout' && e.type != 'mouseover') return false;
+	var reltg = e.relatedTarget ? e.relatedTarget :
+	e.type == 'mouseout' ? e.toElement : e.fromElement;
+	while (reltg && reltg != handler) reltg = reltg.parentNode;
+	return (reltg != handler);
+}
+
+
+
+
+function startminigame()					//starts mini game
+{
+ minigamecheck2 = Math.floor(Math.random()*2+1);
+ 
+ if(minigamecheck2 == 1)
+ {
+   return clickgame()
+ }
+ else if(minigamecheck2 == 2)
+ {
+   return pathgame(0)
+ }
+ else
+ {
+   alert("error");
+ }
+}
+
+
+
+function startspace()
+{
+ 	if(clickedstart == 0 && minigamecheck2 == 2)
+	{
+   	clickedstart = 1;
+    return pathgame(1);
+	}
+}
+function pathgame(yourposition)
+{
+ 	if(minigamecheck2 == 2)
+	{
+	 		if(minigamecheck == 0)						 //starts path game
+			{
+    	 	alert("Follow the game board path.  If you leave the path at any time the game will be over.  You have 10 seconds starting when you click the start space.\nNumber of clicks x 2 will be added to your score at the end of this game.");
+    	 	minigamecheck = 1;
+        spacecounter = 1;	 	 //start on space 1
+        yourposition = 0;
+  			document.game.roll.disabled = true;	 				//disables Roll button
+  			document.game.give.disabled = true;	 				//disables Give up button
+			}
+    	
+			if(clickedstart == 1)
+			{
+    			if(minigamecheck == 1)						 //path game play (when start is clicked)
+        	{
+        		seconds = (cmin2 * 60) + csec2;			 //time game was started (in seconds on click of start space)
+        	 	minigamecheck = 2;
+        	}
+					
+        	if(((cmin2 * 60) + csec2) - seconds <= -10)						//ends path game (current time - time started)
+        	{
+        	 	alert("Time is up, Game Over\nYou got: " + spacecounter + " spaces in 10 seconds");
+      			money += (spacecounter*2);					//adds the number of spaces times 2, to the players money
+      			document.game.money.value = money;					//output money
+      			document.game.roll.disabled = false;	 				//enables Roll button
+   					document.game.give.disabled = false;	 				//enables Give up button
+     
+      			spacecounter = 1;										//resets variable
+      			yourposition = 0;										//resets variable
+    				clickedstart = 0;									//resets variable
+    				minigamecheck = 0;										//resets variable
+    				minigamecheck2 = 0;										//resets variable
+        		document.game.numbers.value = "0";										//resets output box for number of spaces
+						document.game.answer.focus();
+        	}
+					else if(minigamecheck == 2 && yourposition == spacecounter)						 //path game play (all clicks after first click)
+      		{
+        	 	spacecounter = yourposition + 1;
+         		document.game.numbers.value = yourposition;
+      		}
+        	else
+        	{
+        	 	alert("You went outside the path, Game Over\nYou got: " + spacecounter + " spaces in 10 seconds");
+      			money += (spacecounter*2);					//adds the number of clicks times 2, to the players money
+      			document.game.money.value = money;					//output money
+      			document.game.roll.disabled = false;	 				//enables Roll button
+						document.game.give.disabled = false;	 				//enables Give up button
+     
+      			spacecounter = 1;										//resets variable
+      			yourposition = 0;										//resets variable
+    				clickedstart = 0;									//resets variable
+    				minigamecheck = 0;										//resets variable
+    				minigamecheck2 = 0;										//resets variable
+        		document.game.numbers.value = "0";										//resets output box for number of spaces
+						document.game.answer.focus();
+        	}
+			}
+	}
+}
+
+
+function clickgame() 	 	 									 //runs when users clicks deck of cards
+{
+ 	if(minigamecheck2 == 1)						 //varifies click game should start
+	{
+   	if(minigamecheck == 0)						 //starts click game
+  	{
+  	 	alert("Click the deck of cards as many times in 10 seconds as you can.  Game will start once you start clicking.\nNumber of clicks x 2 will be added to your score at the end of this game.");
+  	 	minigamecheck = 1;
+  		minigameclickcounter = 0;			
+			document.game.roll.disabled = true;	 				//disables Roll button
+  		document.game.give.disabled = true;	 				//disables Give up button
+  	}
+  	else if(minigamecheck == 1)						 //click game play (first click)
+  	{
+  		seconds = (cmin2 * 60) + csec2;			 //time game was started (in seconds on first click)
+  	 	minigamecheck = 2;
+  	}
+		else if(minigamecheck == 2)						 //click game play (all clicks after first click)
+		{
+  		minigameclickcounter++;					//adds 1 to players number of clicks
+  		document.game.numbers.value = minigameclickcounter;
+		}
+  	
+  	if(((cmin2 * 60) + csec2) - seconds <= -10)						//ends click game (current time - time started)
+  	{
+  	 	alert("Game Over\nYou got: " + minigameclickcounter + " clicks in 10 seconds");
+			money += (minigameclickcounter*2);					//adds the number of clicks times 2, to the players money
+			document.game.money.value = money;					//output money
+			document.game.roll.disabled = false;	 				//enables Roll button
+  		document.game.give.disabled = false;	 				//enables Give up button
+
+			minigameclickcounter = 0;										//resets variable
+  		minigamecheck = 0;										//resets variable
+			minigamecheck2 = 0;										//resets variable
+  		document.game.numbers.value = minigameclickcounter;										//resets output box for number of clicks
+			document.game.answer.focus();
+  	}
+	}
+}
+
+// -->
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.textbox
+{
+	color: black; 
+  background-color: #B5D3E4;
+  text-align: center;
+	border: 0px solid #6C6D6D;
+}
+.clearbox
+{
+	color: black; 
+  background-color: tan;
+  text-align: center;
+	font-style: italic;
+	border: 0px solid tan;
+}
+.cleargamebox1
+{
+	color: black;
+  background: Images/snow.gif;
+  text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: cursive, arial, times;
+	border: 0px solid white;
+}
+.cleargamebox
+{
+	color: black; 
+  background-color: white;
+  text-align: center;
+	border: 0px solid white;
+}
+.moneybox
+{
+	color: black;
+  background-color: tan;
+  text-align: center;
+	font-size: 20px;
+	border: 0px solid tan;
+}
+.questionbox
+{
+	color: black; 
+  background-color: tan;
+  text-align: left;
+	font-size: 12px;
+	border: 0px solid tan;
+	scrollbar-base-color:tan;
+	scrollbar-arrow-color:red;
+	scrollbar-DarkShadow-Color:tan;
+	scrollbar-Highlight-Color:tan;
+	scrollbar-Shadow-Color:tan;
+	scrollbar-Face-Color:tan;
+	scrollbar-Track-Color:tan;
+}
+.cleargamebox2
+{
+	color: black; 
+  background: Images/snow.gif;
+  text-align: left;
+	font-size: 17px;
+	font-weight: bold;
+	font-family: cursive, arial, times;
+	border: 0px solid white;
+	width: 160px;
+	height: 150px;
+	scrollbar-base-color:white;
+	scrollbar-arrow-color:red;
+	scrollbar-DarkShadow-Color:white;
+	scrollbar-Highlight-Color:white;
+	scrollbar-Shadow-Color:white;
+	scrollbar-Face-Color:white;
+	scrollbar-Track-Color:white;
+}
+</style>
+
+</head>
+<body background="Images/snow.gif" leftmargin="0" rightmargin="0" topmargin="0" bottommargin="0" marginwidth="0" marginheight="0" onload="document.game.disp2.value = '30:00'">
+
+<br>
+<form name="game" onsubmit="return false;">
+
+<table align="left" width="160">
+<tr>
+	<td align="center"><img src="Images/Test_Review.gif" name="img" onmouseover="document.img.src='Images/Test_Review2.gif'" onmouseout="document.img.src='Images/Test_Review.gif'" onmousedown="document.img.src='Images/Test_Review3.gif'" onmouseup="document.img.src='Images/Test_Review2.gif'" alt="Try Clicking on this Image"  height="64"><br><font size="2">I made all of the images above (try clicking on it)</font></td>
+</tr>
+<tr>
+  <td align="center">
+			<center><font style="	font-size: 15px;font-family: cursive, arial, times;">Store | <a href="facts.htm">Info</a> | Scores | Members | Logout</font></center>
+	</td>
+</tr>
+<tr>
+	<td>
+    <font size="4"><u><center>Choose Your Piece</center></u></font>
+		
+		<table align="center" width="100%" border="0" cellspacing="0" cellpadding="2">
+      <tr>
+        <td align="center"><img src="Images/king_piece.gif" name="piece1" width="60" height="60" border="0" onclick="if(playerpiece==0){piecechoice1()}" onmouseover="if(playerpiece==0){document.game.charinfo.value='King\n\nMoney: $25\nSpeed: +2\nLuck: 30%';}" onmouseout="if(playerpiece==0){document.game.charinfo.value='';}"></td>
+				<td rowspan="2" align="center"><textarea name="charinfo" class="cleargamebox2" readonly></textarea></td>
+				<td align="center"><img src="Images/squire_piece.gif" name="piece4" width="60" height="60" border="0" onclick="if(playerpiece==0){piecechoice4()}" onmouseover="if(playerpiece==0){document.game.charinfo.value='Squire\n\nMoney: $10\nSpeed: +4\nLuck: 45%';}" onmouseout="if(playerpiece==0){document.game.charinfo.value='';}"></td>
+      </tr>
+			<tr>
+				<td align="center"><img src="Images/queen_piece.gif" name="piece2" width="60" height="60" border="0" onclick="if(playerpiece==0){piecechoice2()}" onmouseover="if(playerpiece==0){document.game.charinfo.value='Queen\n\nMoney: $25\nSpeed: +2\nLuck: 30%';}" onmouseout="if(playerpiece==0){document.game.charinfo.value='';}"></td>
+        <td align="center"><img src="Images/rhood_piece.gif" name="piece5" width="60" height="60" border="0" onclick="if(playerpiece==0){piecechoice5()}" onmouseover="if(playerpiece==0){document.game.charinfo.value='Robin Hood\n\nMoney: $5\nSpeed: +6\nLuck: 75%';}" onmouseout="if(playerpiece==0){document.game.charinfo.value='';}"></td>
+			</tr>
+			<tr>
+				<td align="center"><img src="Images/knight_piece.gif" name="piece3" width="60" height="60" border="0" onclick="if(playerpiece==0){piecechoice3()}" onmouseover="if(playerpiece==0){document.game.charinfo.value='Knight\n\nMoney: $15\nSpeed: +2\nLuck: 60%';}" onmouseout="if(playerpiece==0){document.game.charinfo.value='';}"></td>
+				<td align="center">
+				
+						<table border="0" cellspacing="0" cellpadding="0" width="80%">
+								<tr>
+										<td align="center" colspan="10"><input type="text" size="20" class="cleargamebox1" name="itemvaluetwo" value="" readonly></td>
+								</tr>
+						</table>
+				</td>
+        <td align="center"><img src="Images/grendel_piece.gif" name="piece6" width="60" height="60" border="0" onclick="if(playerpiece==0){piecechoice6()}" onmouseover="if(playerpiece==0){document.game.charinfo.value='Grendel\n\nMoney: $10\nSpeed: +8\nLuck: 15%';}" onmouseout="if(playerpiece==0){document.game.charinfo.value='';}"></td>
+			</tr>
+    </table>
+    
+  </td>
+</tr>
+<tr>
+	<td><ol></td>
+</tr>
+<tr>
+	<td>
+      <font size="4"><u><center>How To Play</center></u></font>
+  		<font size="3">
+			<li>Make sure your answers are spelled correctly
+			<li>Red Money = <font color="red">-$50</font>
+			<li>Green Money = <font color="green">+$50</font>
+			<li>Each piece has it's own story
+			<li>No cheating
+		</ol>
+		</font>
+	</td>
+</tr>
+<tr>
+  <td align="center">
+		<table border="0" cellspacing="0" cellpadding="0">
+  		<tr>
+    		<td>Made by&nbsp;&nbsp;</td>
+    		<td onclick="if(playerpiece==0){piecechoice7()}" onmouseover="if(playerpiece==0){document.game.charinfo.value='Chris Ghost\n\nMoney: $20\nSpeed: +5\nLuck: 50%';}" onmouseout="if(playerpiece==0){document.game.charinfo.value='';}">Christopher Vaccarello</td>
+  		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+
+
+
+
+
+<div onmouseout='var leave = document.getElementById("leave"); if (isMouseLeaveOrEnter(event, this)) pathgame(100);'>
+<table border="0" width="60" height="60" align="center" bgcolor="black" cellpadding="0" cellspacing="1">
+<tr>
+	<td background="Images/start.gif" onclick="startspace()"><img src="Images/spacer.gif" name="space1" width="60" height="60"></td>
+	<td bgcolor="pink" onmouseover="pathgame(46)"><img src="Images/spacer.gif" name="space46" width="60" height="60"></td>
+	<td background="Images/bnegativemoneyspace.gif" onmouseover="pathgame(45)"><img src="Images/spacer.gif" name="space45" width="60" height="60"></td>
+	<td background="Images/rnegativemoneyspace.gif" onmouseover="pathgame(44)"><img src="Images/spacer.gif" name="space44" width="60" height="60"></td>
+	<td bgcolor="tan" colspan="3" align="center" onmouseover="pathgame(100)"><font size="6">$</font><input size="6" type="text" name="money" value="0" class="moneybox" readonly></td>
+	<td background="Images/rspace.gif" onmouseover="pathgame(38)"><img src="Images/spacer.gif" name="space38" width="60" height="60"></td>
+	<td bgcolor="yellow" onmouseover="pathgame(37)"><img src="Images/spacer.gif" name="space37" width="60" height="60"></td>
+	<td background="Images/gspace.gif" onmouseover="pathgame(36)"><img src="Images/spacer.gif" name="space36" width="60" height="60"></td>
+	<td bgcolor="tan" onmouseover="pathgame(100)">&nbsp;</td>
+</tr>
+<tr>
+	<td background="Images/rpositivemoneyspace.gif" onmouseover="pathgame(2)"><img src="Images/spacer.gif" name="space2" width="60" height="60"></td>
+	<td background="Images/gspace.gif" onmouseover="pathgame(47)"><img src="Images/spacer.gif" name="space47" width="60" height="60"></td>
+	<td bgcolor="tan" onmouseover="pathgame(100)">&nbsp;</td>
+	<td background="Images/yminigamespace.gif" onmouseover="pathgame(43)"><img src="Images/spacer.gif" name="space43" width="60" height="60"></td>
+	<td background="Images/gpositivemoneyspace.gif" onmouseover="pathgame(42)"><img src="Images/spacer.gif" name="space42" width="60" height="60"></td>
+	<td background ="Images/pspace.gif" onmouseover="pathgame(41)"><img src="Images/spacer.gif" name="space41" width="60" height="60"></td>
+	<td background="Images/bnegativemoneyspace.gif" onmouseover="pathgame(40)"><img src="Images/spacer.gif" name="space40" width="60" height="60"></td>
+	<td background="Images/drpositivemoneyspace.gif" onmouseover="pathgame(39)"><img src="Images/spacer.gif" name="space39" width="60" height="60"></td>
+	<td bgcolor="tan" onmouseover="pathgame(100)">&nbsp;</td>
+	<td bgcolor="pink" onmouseover="pathgame(35)"><img src="Images/spacer.gif" name="space35" width="60" height="60"></td>
+	<td background="Images/bspace.gif" onmouseover="pathgame(34)"><img src="Images/spacer.gif" name="space34" width="60" height="60"></td>
+</tr>
+<tr>
+	<td bgcolor="brown" onmouseover="pathgame(3)"><img src="Images/spacer.gif" name="space3" width="60" height="60"></td>
+	<td bgcolor="tan" colspan="2" align="center" onmouseover="pathgame(100)"><input type="button" size="1" value="Restart game" onclick="restartgame()"></td>
+	<td colspan="5" rowspan="4" align="center" bgcolor="tan" onmouseover="pathgame(100)">
+
+ 	<input type="text" name="numbers" value="0" size="2" class="cleargamebox" readonly>
+ 	<table border="0" cellpadding="0" cellspacing="0" align="center" valign="top">
+ 	<tr valign="top">
+ 	<td align="left" valign="top">
+ 	<b>Q:</b>
+ 	</td>
+ 	<td valign="top">
+ 	<textarea cols="22" rows="4" name="question" class="questionbox" readonly></textarea>
+ 	</td>
+ 	<td rowspan="2" align="left" valign="top"><img src="Images/card_back.gif" name="card"  onmouseup="clickgame()"></td>
+ 	</tr>
+ 	<tr>
+ 	<td valign="top">
+ 	<b>A:</b>
+ 	</td>
+ 	<td valign="top">
+ 	<input type="text" name="answer" size="20" value="" onkeypress="return handleEnter(this, event),document.game.answer.focus()"><br>
+ 	<input type="text" name="giveanswer" value="" size="20" class="clearbox" readonly>
+ 	</td>
+ 	</tr>
+ 	<tr>
+ 	<td colspan="3" align="center">
+ 	<img src="Images/0.gif" alt="Dice" name="Dice1"><br>
+ 	<input type="button" name="roll" value="    Roll    " onclick="Roll()">
+ 	<input type="button" name="give" value="Give up" onclick="giveup()">
+ 	</td>
+ 	</tr>
+ 	</table>
+
+	</td>
+	<td bgcolor="tan" colspan="2" align="center" onmouseover="pathgame(100)"><input type="button" size="1" value="Music on" name="musicvalue" onclick="music()"></td>
+	<td background="Images/drpositivemoneyspace.gif" onmouseover="pathgame(33)"><img src="Images/spacer.gif" name="space33" width="60" height="60"></td>
+</tr>
+<tr>
+	<td background="Images/bspace.gif" onmouseover="pathgame(4)"><img src="Images/spacer.gif" name="space4" width="60" height="60"></td>
+	<td background="Images/ppositivemoneyspace.gif" onmouseover="pathgame(5)"><img src="Images/spacer.gif" name="space5" width="60" height="60"></td>
+	<td background="Images/gnegativemoneyspace.gif" onmouseover="pathgame(6)"><img src="Images/spacer.gif" name="space6" width="60" height="60"></td>
+	<td bgcolor="green" onmouseover="pathgame(30)"><img src="Images/spacer.gif" name="space30" width="60" height="60"></td>
+	<td background="Images/ynegativemoneyspace.gif" onmouseover="pathgame(31)"><img src="Images/spacer.gif" name="space31" width="60" height="60"></td>
+	<td bgcolor="red" onmouseover="pathgame(32)"><img src="Images/spacer.gif" name="space32" width="60" height="60"></td>
+</tr>
+<tr>
+	<td bgcolor="brown" onmouseover="pathgame(9)"><img src="Images/spacer.gif" name="space9" width="60" height="60"></td>
+	<td background="Images/rminigamespace.gif" onmouseover="pathgame(8)"><img src="Images/spacer.gif" name="space8" width="60" height="60"></td>
+	<td background="Images/yspace.gif" onmouseover="pathgame(7)"><img src="Images/spacer.gif" name="space7" width="60" height="60"></td>
+	<td background="Images/pnegativemoneyspace.gif" onmouseover="pathgame(29)"><img src="Images/spacer.gif" name="space29" width="60" height="60"></td>
+	<td background="Images/bspace.gif" onmouseover="pathgame(28)"><img src="Images/spacer.gif" name="space28" width="60" height="60"></td>
+	<td bgcolor="brown" onmouseover="pathgame(27)"><img src="Images/spacer.gif" name="space27" width="60" height="60"></td>
+</tr>
+<tr>
+	<td background="Images/bnegativemoneyspace.gif" onmouseover="pathgame(10)"><img src="Images/spacer.gif" name="space10" width="60" height="60"></td>
+	<td bgcolor="tan" colspan="2" rowspan="2" align="center" onmouseover="pathgame(100)"><img src="Images/Sword.gif" height="120"></td>
+	<td bgcolor="tan" colspan="2" rowspan="2" align="center" onmouseover="pathgame(100)"><img src="Images/Shield.gif" height="120"></td>
+	<td bgcolor="red" onmouseover="pathgame(26)"><img src="Images/spacer.gif" name="space26" width="60" height="60"></td>
+</tr>
+<tr>
+	<td bgcolor="pink" onmouseover="pathgame(11)"><img src="Images/spacer.gif" name="space11" width="60" height="60"></td>
+	<td background="Images/bpositivemoneyspace.gif" onmouseover="pathgame(16)"><img src="Images/spacer.gif" name="space16" width="60" height="60"></td>
+	<td background="Images/pspace.gif" onmouseover="pathgame(17)"><img src="Images/spacer.gif" name="space17" width="60" height="60"></td>
+	<td background="Images/gminigamespace.gif" onmouseover="pathgame(18)"><img src="Images/spacer.gif" name="space18" width="60" height="60"></td>
+	<td background="Images/ynegativemoneyspace.gif" onmouseover="pathgame(19)"><img src="Images/spacer.gif" name="space19" width="60" height="60"></td>
+	<td bgcolor="red" onmouseover="pathgame(20)"><img src="Images/spacer.gif" name="space20" width="60" height="60"></td>
+	<td background="Images/ypositivemoneyspace.gif" onmouseover="pathgame(25)"><img src="Images/spacer.gif" name="space25" width="60" height="60"></td>
+</tr>
+<tr>
+	<td background="Images/gpositivemoneyspace.gif" onmouseover="pathgame(12)"><img src="Images/spacer.gif" name="space12" width="60" height="60"></td>
+	<td background="Images/yspace.gif" onmouseover="pathgame(13)"><img src="Images/spacer.gif" name="space13" width="60" height="60"></td>
+	<td bgcolor="red" onmouseover="pathgame(14)"><img src="Images/spacer.gif" name="space14" width="60" height="60"></td>
+	<td background="Images/drnegativemoneyspace.gif" onmouseover="pathgame(15)"><img src="Images/spacer.gif" name="space15" width="60" height="60"></td>
+	<td bgcolor="tan" colspan="3" align="center" onmouseover="pathgame(100)">
+ 			<input type="text" name="disp2" size="7" class="moneybox" readonly>
+	</td>
+	<td background="Images/drspace.gif" onmouseover="pathgame(21)"><img src="Images/spacer.gif" name="space21" width="60" height="60"></td>
+	<td background="Images/bnegativemoneyspace.gif" onmouseover="pathgame(22)"><img src="Images/spacer.gif" name="space22" width="60" height="60"></td>
+	<td background="Images/pminigamespace.gif" onmouseover="pathgame(23)"><img src="Images/spacer.gif" name="space23" width="60" height="60"></td>
+	<td background="Images/gpositivemoneyspace.gif" onmouseover="pathgame(24)"><img src="Images/spacer.gif" name="space24" width="60" height="60"></td>
+</tr>
+</table>
+</div>
+
+ 	<input type="hidden" name="beg2" size="7" value="30:00">
+
+<center>Dedicated to my friends who have been there for me.</center>
+</form>
+
+</form>
+</body>
+</html>
