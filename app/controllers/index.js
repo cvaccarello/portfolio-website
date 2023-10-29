@@ -89,6 +89,7 @@ export default class Home extends Controller {
 		$(document).off('scroll', this.onScrollParticles);
 		this.MyParticleEmitter.remove();
 		Ember.s?.destroy();
+		Ember.s = null;
 	}
 
 	emitParticlesOnScroll() {
