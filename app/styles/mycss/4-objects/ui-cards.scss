@@ -1,11 +1,32 @@
 // namespace: 'ui-card'
 
+.ui-card-flex-container {
+	display: flex;
+	gap: map-get($margins, 'largest');
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
 .ui-card {
 	background-color: $color-white;
 	padding: $padding-section;
 	margin-bottom: map-get($margins, 'largest');
 	box-shadow: $box-shadow-dark;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	@include breakpoint($bp-m) {
+		flex-basis: calc(50% - map-get($margins, 'largest'));
+	}
+
+	@include breakpoint($bp-l) {
+		flex-basis: calc(33.33% - map-get($margins, 'largest'));
+	}
+
+	.ui-card-body {
+		flex-grow: 1;
+	}
 }
 
 .ui-card-title {
@@ -13,10 +34,6 @@
 	padding: 15px $padding-section;
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-.ui-card-footer {
-	padding: 10px 0;
 }
 
 .ui-card-image-wrapper {
@@ -30,6 +47,7 @@
 }
 
 .ui-card-footer {
+	padding: 10px 0;
 	text-align: center;
 }
 
@@ -46,7 +64,7 @@
 	}
 
 	.ui-card-footer {
-		padding: 10px 20px;
+		padding: 0 20px 10px;
 		margin-bottom: map-get($margins, 'normal');
 	}
 }
