@@ -8,6 +8,25 @@
 
 			<div class="ui-card-flex-container">
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
+					<div class="ui-card-image-wrapper"><img src="/images/projects/d4-overlay.png"/></div>
+					<h2 class="t-fsize-smallest ui-card-title">Diablo 4 Loot Detector</h2>
+					<div class="ui-card-body">
+						<div class="ui-tag-container"><span class="ui-tag">Node.js</span><span class="ui-tag">Electron</span><span class="ui-tag">JavaScript</span><span class="ui-tag">OCR</span></div>
+						<details>
+							<summary>
+								<span class="toggle-container">
+									<span class="text">Made this for fun in about 2 weeks, using JavaScript, Node, Electron, and the Tesseract.js OCR engine. I used electron to make a desktop application that can run an overlay.  Then I used tesseract + some optimization code to real-time scan the screen for specific text and values that I could set via a pre-window interface.  These defined values indicated high quality loot, needed for my build in the Diablo 4 video game.  Once the loot is identified as something I want, I used a canvas on a transparent overlay to highlight the relevant information. <a href="https://github.com/cvaccarello/diablo-4-overlay" target="_blank">GitHub: D4 Overlay</a></span>
+									<span class="expand">Expand <span class="icon"><i></i></span></span>
+								</span>
+							</summary>
+						</details>
+					</div>
+					<footer class="ui-card-footer">
+						<Enlargeable @text="Preview" @image="/images/projects/d4-overlay.png" @video="/videos/d4-overlay.mp4"></Enlargeable>
+					</footer>
+				</div>
+
+				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
 					<div class="ui-card-image-wrapper"><img src="/images/projects/virtual-booth.png"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Virtual Booth</h2>
 					<div class="ui-card-body">
@@ -61,6 +80,25 @@
 					</div>
 					<footer class="ui-card-footer">
 						<Enlargeable @text="Preview" @image="/images/projects/virtual-booth-3d-v2.png" @video="/videos/virtual-booth-3d-v2.mp4"></Enlargeable>
+					</footer>
+				</div>
+
+				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
+					<div class="ui-card-image-wrapper"><img src="/images/projects/sneaky-seamus.png"/></div>
+					<h2 class="t-fsize-smallest ui-card-title">Sneaky Seamus Card Game</h2>
+					<div class="ui-card-body">
+						<div class="ui-tag-container"><span class="ui-tag">Inkscape</span><span class="ui-tag">SVG</span></div>
+						<details>
+							<summary>
+								<span class="toggle-container">
+									<span class="text">Sneaky Seamus is a card game created by my family. The idea was a collaborative effort, but the artwork for the cards and die was created by myself. The game consists of hundreds of cards, dozens of unique designs, a custom die, several circular "gold" tokens, and a box to contain it all!</span>
+									<span class="expand">Expand <span class="icon"><i></i></span></span>
+								</span>
+							</summary>
+						</details>
+					</div>
+					<footer class="ui-card-footer">
+						<LinkTo @route="sneaky-seamus" class="btn btn-primary">View Sample</LinkTo>
 					</footer>
 				</div>
 

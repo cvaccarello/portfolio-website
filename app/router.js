@@ -9,5 +9,6 @@ export default class Router extends EmberRouter {
 Router.map(function () {
 	this.route('projects');
 	this.route('artwork');
+	this.route('sneaky-seamus');
 	this.route('models');
 });
