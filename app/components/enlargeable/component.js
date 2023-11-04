@@ -22,7 +22,10 @@ export default class Enlargeable extends Component {
 		// remove previous dialog if any exist
 		this.$dialog.remove();
 
-		if (videoSrc) {
+		if (videoSrc && videoSrc.match('youtube.com')) {
+			// special case for youtube videos
+			this.$dialog = $(`<dialog class="dialog-full-image"><iframe class="dialog-inner" width="100%" src="${videoSrc}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></dialog>`).appendTo('body');
+		} else if (videoSrc) {
 			this.$dialog = $(`<dialog class="dialog-full-image"><video class="dialog-inner" poster="${imageSrc}" controls><source src="${videoSrc}" type="video/mp4"/></video></dialog>`).appendTo('body');
 		} else {
 			this.$dialog = $(`<dialog class="dialog-full-image"><img class="dialog-inner" src="${imageSrc}" alt=""/></dialog>`).appendTo('body');
