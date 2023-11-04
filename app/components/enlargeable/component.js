@@ -16,16 +16,16 @@ export default class Enlargeable extends Component {
 	@action
 	enlarge(event) {
 		let $currentTarget = $(event.currentTarget);
-		let imageSrc = $currentTarget.attr('data-image') || $currentTarget.find('img').attr('data-src');
-		let videoSrc = $currentTarget.attr('data-video');
+		let imageSrc = $currentTarget.data('image') || $currentTarget.find('img').data('src');
+		let videoSrc = $currentTarget.data('video');
 
 		// remove previous dialog if any exist
 		this.$dialog.remove();
 
 		if (videoSrc) {
-			this.$dialog = $(`<dialog class="dialog-full-image"><video poster="${imageSrc}" controls><source src="${videoSrc}" type="video/mp4"/></video></dialog>`).appendTo('body');
+			this.$dialog = $(`<dialog class="dialog-full-image"><video class="dialog-inner" poster="${imageSrc}" controls><source src="${videoSrc}" type="video/mp4"/></video></dialog>`).appendTo('body');
 		} else {
-			this.$dialog = $(`<dialog class="dialog-full-image"><img src="${imageSrc}" alt=""/></dialog>`).appendTo('body');
+			this.$dialog = $(`<dialog class="dialog-full-image"><img class="dialog-inner" src="${imageSrc}" alt=""/></dialog>`).appendTo('body');
 		}
 
 		this.$dialog[0].showModal();
