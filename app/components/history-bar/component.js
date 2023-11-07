@@ -1,7 +1,7 @@
+import $ from 'jquery';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import Ember from 'ember';
 
 export default class HistoryBar extends Component {
 	@tracked dates;
@@ -64,7 +64,7 @@ export default class HistoryBar extends Component {
 		var $organizations = $el.find('.history-bar-organization');
 		var el_top = $el.offset().top;
 
-		$organizations.each(function (i) {
+		$organizations.each(function () {
 			var $this = $(this);
 			var height = $this.outerHeight();
 			var date_from = JSON.parse($this.attr('data-date-from'));

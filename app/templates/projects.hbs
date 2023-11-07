@@ -8,26 +8,7 @@
 
 			<div class="ui-card-flex-container">
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/d4-overlay.png"/></div>
-					<h2 class="t-fsize-smallest ui-card-title">Diablo 4 Loot Detector</h2>
-					<div class="ui-card-body">
-						<div class="ui-tag-container"><span class="ui-tag">Node.js</span><span class="ui-tag">Electron</span><span class="ui-tag">JavaScript</span><span class="ui-tag">OCR</span></div>
-						<details>
-							<summary>
-								<span class="toggle-container">
-									<span class="text">Made this for fun in about 2 weeks, using JavaScript, Node, Electron, and the Tesseract.js OCR engine. I used electron to make a desktop application that can run an overlay.  Then I used tesseract + some optimization code to real-time scan the screen for specific text and values that I could set via a pre-window interface.  These defined values indicated high quality loot, needed for my build in the Diablo 4 video game.  Once the loot is identified as something I want, I used a canvas on a transparent overlay to highlight the relevant information. <a href="https://github.com/cvaccarello/diablo-4-overlay" target="_blank">GitHub: D4 Overlay</a></span>
-									<span class="expand">Expand <span class="icon"><i></i></span></span>
-								</span>
-							</summary>
-						</details>
-					</div>
-					<footer class="ui-card-footer">
-						<Enlargeable @text="Preview" @image="/images/projects/d4-overlay.png" @video="/videos/d4-overlay.mp4"></Enlargeable>
-					</footer>
-				</div>
-
-				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/virtual-booth.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/virtual-booth.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Virtual Booth</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">JavaScript</span><span class="ui-tag">HTML</span><span class="ui-tag">CSS</span><span class="ui-tag">jQuery</span></div>
@@ -46,7 +27,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/virtual-booth-3d.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/virtual-booth-3d.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Virtual Booth 3D</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">JavaScript</span><span class="ui-tag">HTML</span><span class="ui-tag">CSS</span><span class="ui-tag">jQuery</span><span class="ui-tag">three.js</span></div>
@@ -65,7 +46,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/virtual-booth-3d-v2.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/virtual-booth-3d-v2.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Virtual Booth 3D (v2)</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">JavaScript</span><span class="ui-tag">HTML</span><span class="ui-tag">CSS</span><span class="ui-tag">jQuery</span><span class="ui-tag">three.js</span></div>
@@ -84,7 +65,26 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/professor-hemlock.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/d4-overlay.png" alt="project"/></div>
+					<h2 class="t-fsize-smallest ui-card-title">Diablo 4 Loot Detector</h2>
+					<div class="ui-card-body">
+						<div class="ui-tag-container"><span class="ui-tag">Node.js</span><span class="ui-tag">Electron</span><span class="ui-tag">JavaScript</span><span class="ui-tag">OCR</span></div>
+						<details>
+							<summary>
+								<span class="toggle-container">
+									<span class="text">Made this for fun in about 2 weeks, using JavaScript, Node, Electron, and the Tesseract.js OCR engine. I used electron to make a desktop application that can run an overlay.  Then I used tesseract + some optimization code to real-time scan the screen for specific text and values that I could set via a pre-window interface.  These defined values indicated high quality loot, needed for my build in the Diablo 4 video game.  Once the loot is identified as something I want, I used a canvas on a transparent overlay to highlight the relevant information. <a href="https://github.com/cvaccarello/diablo-4-overlay" target="_blank" rel="noopener noreferrer">GitHub: D4 Overlay</a></span>
+									<span class="expand">Expand <span class="icon"><i></i></span></span>
+								</span>
+							</summary>
+						</details>
+					</div>
+					<footer class="ui-card-footer">
+						<Enlargeable @text="Preview" @image="/images/projects/d4-overlay.png" @video="/videos/d4-overlay.mp4"></Enlargeable>
+					</footer>
+				</div>
+
+				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
+					<div class="ui-card-image-wrapper"><img src="/images/projects/professor-hemlock.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Professor Hemlock - Pokémon GO Discord Bot</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">Node</span><span class="ui-tag">JavaScript</span><span class="ui-tag">OCR</span></div>
@@ -94,7 +94,7 @@
 									<span class="text">
 										<span class="p">This project started as a discord chat application project for a local community out of necessity for organizing large groups of random people for in-person raids and activities.  Eventually it grew to hundreds of communities and thousands of people, with half a dozen developers contributing to the project.</span>
 										<span class="p">Features included chat commands to create channels, @mention people, fuzzy search for Pokémon, interface with 3rd party APIs, and my personal favorite, read in-game screenshots with OCR and do all of the above without needing to research commands to type.</span>
-										<span class="p">A ton of time and care went into growing the project and numerous communities in discord for over 5 years.  If you'd like to check out the discord bot and our community you can do so <a href="https://discord.gg/s76QW7S" target="_blank">here!</a></span>
+										<span class="p">A ton of time and care went into growing the project and numerous communities in discord for over 5 years.  If you'd like to check out the discord bot and our community you can do so <a href="https://discord.gg/s76QW7S" target="_blank" rel="noopener noreferrer">here!</a></span>
 									</span>
 									<span class="expand">Expand <span class="icon"><i></i></span></span>
 								</span>
@@ -107,7 +107,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/sneaky-seamus.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/sneaky-seamus.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Sneaky Seamus Card Game</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">Inkscape</span><span class="ui-tag">SVG</span></div>
@@ -143,7 +143,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/backgrounds/earth.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/backgrounds/earth.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Artwork</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">Inkscape</span><span class="ui-tag">Pixlr</span><span class="ui-tag">Paintshop</span></div>
@@ -162,7 +162,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/organic-ship-basic.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/organic-ship-basic.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">3D Models</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">Blender</span><span class="ui-tag">Paintshop</span></div>
@@ -181,7 +181,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/raytracer.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/raytracer.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Raytracer</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">Python</span><span class="ui-tag">PyGame</span><span class="ui-tag">Blender</span></div>
@@ -200,7 +200,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/disintegris.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/disintegris.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">Disintegris</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">Python</span><span class="ui-tag">PyGame</span><span class="ui-tag">Paintshop</span></div>
@@ -222,7 +222,7 @@
 				</div>
 
 				<div class="ui-card ui-card-hero-wrapper ui-theme-inverted">
-					<div class="ui-card-image-wrapper"><img src="/images/projects/english-game.png"/></div>
+					<div class="ui-card-image-wrapper"><img src="/images/projects/english-game.png" alt="project"/></div>
 					<h2 class="t-fsize-smallest ui-card-title">English History</h2>
 					<div class="ui-card-body">
 						<div class="ui-tag-container"><span class="ui-tag">JavaScript</span><span class="ui-tag">HTML</span><span class="ui-tag">PHP</span><span class="ui-tag">Paintshop</span></div>

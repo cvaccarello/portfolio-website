@@ -26,6 +26,7 @@ var chart_options = {
 
 var my_skills = [
 	{
+		title: 'Languages',
 		labels: [
 			'Javascript',
 			'HTML',
@@ -53,6 +54,7 @@ var my_skills = [
 		options: chart_options,
 	},
 	{
+		title: 'Libraries',
 		labels: [
 			'Electron',
 			'Express',
@@ -77,6 +79,7 @@ var my_skills = [
 		options: chart_options,
 	},
 	{
+		title: 'Tools',
 		labels: [
 			'Git',
 			'Balsamiq',

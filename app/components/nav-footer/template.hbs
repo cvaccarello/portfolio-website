@@ -1,21 +1,22 @@
-<div class="container">
-	<div class="row">
-		<div class="columns eight">
-			<div class="nav-footer-h1">About This Website</div>
-			<p>This site was created with Ember, using HTMLBars, and SCSS.</p>
-			<p>The CSS was constructed with SCSS (a css pre-processor) and is using a blend of OOCSS, SMACSS, and ITCSS
-				principles, I call it MYCSS!</p>
-		</div>
+<footer class="nav-footer">
+	<div class="container">
+		<div class="row">
+			<div class="columns eight">
+				<div class="nav-footer-h1">About This Website</div>
+				<p>This site was created with Ember, using HTMLBars, and SCSS.</p>
+				<p>The CSS was constructed with SCSS (a css pre-processor) and is using a blend of OOCSS, SMACSS, and ITCSS principles, I call it MYCSS!</p>
+			</div>
 
-		<div class="columns four">
-			<a name="contact-me"></a>
-			<div class="nav-footer-h1">Contact Me</div>
-			<ul>
-				{{! https://fontawesome.com/search?q=map&o=r&m=free&s=solid }}
-				<li><FaIcon @icon="location-dot" @fixedWidth={{true}}/> Pittsburgh, PA</li>
-				<li><FaIcon @icon="envelope" @fixedWidth={{true}}/> cvaccarello2016@gmail.com</li>
-				<li><FaIcon @icon="mobile-screen" @fixedWidth={{true}}/> (724) 713-1000</li>
-			</ul>
+			<div class="columns four">
+				<a href="javascript:void(0)" name="contact-me"></a>
+				<div class="nav-footer-h1">Contact Me</div>
+				<ul>
+					{{! https://fontawesome.com/search?q=map&o=r&m=free&s=solid }}
+					<li><FaIcon @icon="location-dot" @fixedWidth={{true}}/> Pittsburgh, PA</li>
+					<li><FaIcon @icon="envelope" @fixedWidth={{true}}/> cvaccarello2016@gmail.com</li>
+					<li><FaIcon @icon="mobile-screen" @fixedWidth={{true}}/> (724) 713-1000</li>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
+</footer>

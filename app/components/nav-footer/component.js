@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Component from '@glimmer/component';
 
-export default Ember.Component.extend({
-	tagName: 'footer',
-	classNames: ['nav-footer'],
-});
+export default class NavFooter extends Component {
+	constructor() {
+		super(...arguments);
+	}
+}

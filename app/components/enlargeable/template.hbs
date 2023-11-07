@@ -1,13 +1,13 @@
 {{#if @text}}
-	<button class="btn btn-primary" data-image="{{@image}}" data-video="{{@video}}" {{on "click" this.enlarge}}>
+	<button class="btn btn-primary" type="button" data-image="{{@image}}" data-video="{{@video}}" {{on "click" this.enlarge}}>
 		{{@text}}
 	</button>
 {{else}}
-	<button class="btn enlarge-image" data-image="{{@image}}" data-video="{{@video}}" {{on "click" this.enlarge}}>
+	<button class="btn enlarge-image" type="button" data-image="{{@image}}" data-video="{{@video}}" {{on "click" this.enlarge}}>
 		{{#if @thumbnail}}
-			<img src="{{@thumbnail}}" alt="image"/>
+			<img src="{{@thumbnail}}" alt="thumbnail"/>
 		{{else if @image}}
-			<img src="{{@image}}" alt="image"/>
+			<img src="{{@image}}" alt="thumbnail"/>
 		{{/if}}
 	</button>
 {{/if}}

@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Component from '@glimmer/component';
 
-export default Ember.Component.extend({
-	tagName: 'header',
-	classNames: ['site-header'],
-});
+export default class NavHeader extends Component {
+	constructor() {
+		super(...arguments);
+	}
+}

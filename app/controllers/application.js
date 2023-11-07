@@ -12,5 +12,6 @@ export default class Home extends Controller {
 
 	@action
 	rendered() {
+		// placeholder for now
 	}
 }

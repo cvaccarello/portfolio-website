@@ -62,7 +62,7 @@ export default class Home extends Controller {
 					return $('#skrollr-history-bar-line').outerHeight();
 				},
 			},
-			render(options) {
+			render() {
 				// get all pivot points so that their children, if they exist, can be counter-rotated
 				var $moon = $('.hp-moon');
 				$moon.each(function () {

@@ -16,9 +16,9 @@
 					<h2 class="t-fsize-smallest t-margin-smallest">About Me</h2>
 					<p>The objective of this site is to highlight who I am, and provide an opportunity for employment. I am looking to expand my knowledge and skills by adding value to an organization.  I would describe myself as being very self-motivated and eager to learn.</p>
 					<p>On a more personal note, I enjoy reading articles on space, technology, and video games.  When I have free time, I like to either play video games, or create them.</p>
-					<a class="btn btn-primary btn-large" href="Resume.pdf">{{fa-icon "download"}} Resume (.pdf)</a>
+					<a class="btn btn-primary btn-large" href="Resume.pdf"><FaIcon @icon="download" @fixedWidth={{true}}/> Resume (.pdf)</a>
 				</div>
-				<img class="hp-image ci-combo-image" src="images/me.png"/>
+				<img class="hp-image ci-combo-image" src="images/me.png" alt="profile"/>
 			</div>
 		</div>
 	</section>
@@ -31,18 +31,12 @@
 			<p class="u-text-center">The following is a list of what I feel are my strongest skills, rating from 1-10, where 10 is my most knowledgeable.</p>
 
 			<div class="rchart-container">
-				<div class="hp-chart-languages rchart-box">
-					<label class="rchart-label">Languages</label>
-					{{ember-chart type='radar' data=@model.my_skills.[0] options=@model.my_skills.[0].options width=260 height=260}}
-				</div>
-				<div class="hp-chart-frameworks rchart-box">
-					<label class="rchart-label">Libraries</label>
-					{{ember-chart type='radar' data=@model.my_skills.[1] options=@model.my_skills.[1].options width=260 height=260}}
-				</div>
-				<div class="hp-chart-tools rchart-box">
-					<label class="rchart-label">Tools</label>
-					{{ember-chart type='radar' data=@model.my_skills.[2] options=@model.my_skills.[2].options width=260 height=260}}
-				</div>
+				{{#each @model.my_skills as |chart|}}
+					<div class="hp-chart-frameworks rchart-box">
+						<label class="rchart-label">{{chart.title}}</label>
+						<EmberChart @type='radar' @data={{chart}} @options={{chart.options}} @width="260" @height="260"></EmberChart>
+					</div>
+				{{/each}}
 				<div class="rchart-box"><!-- used to justify above inline-block elements --></div>
 			</div>
 		</div>

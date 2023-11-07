@@ -22,6 +22,11 @@ module.exports = {
 		'plugin:ember/recommended',
 		'plugin:prettier/recommended',
 	],
+	globals: {
+		ParticleSystem: true,
+		ParticleEmitter: true,
+		skrollr: true,
+	},
 	env: {
 		browser: true,
 		jquery: true,
