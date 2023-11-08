@@ -33,6 +33,12 @@ module.exports = {
 	},
 	rules: {
 		'ember/no-jquery': 'off',
+		'prettier/prettier': [
+			'error',
+			{
+				endOfLine: 'auto',
+			},
+		],
 	},
 	overrides: [
 		// node files
