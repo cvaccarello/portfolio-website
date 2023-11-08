@@ -1,1 +1,13 @@
-{{yield}}
+{{#if (eq @tagName 'h1')}}
+	<h1 class={{@classNames}}>{{yield}}</h1>
+{{else if (eq @tagName 'h2')}}
+	<h2 class={{@classNames}}>{{yield}}</h2>
+{{else if (eq @tagName 'h3')}}
+	<h3 class={{@classNames}}>{{yield}}</h3>
+{{else if (eq @tagName 'h4')}}
+	<h4 class={{@classNames}}>{{yield}}</h4>
+{{else if (eq @tagName 'h5')}}
+	<h5 class={{@classNames}}>{{yield}}</h5>
+{{else if (eq @tagName 'h6')}}
+	<h6 class={{@classNames}}>{{yield}}</h6>
+{{/if}}

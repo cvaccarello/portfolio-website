@@ -8,9 +8,9 @@
 				data-date-from="{{organization.date.from}}"
 				data-date-to="{{organization.date.to}}"
 			>
-				<HType @tagName={{@h1}} classNames="org-date t-fsize-smaller">{{organization.date.from}} - {{organization.date.to}}</HType>
-				<HType @tagName={{@h2}} className="org-name t-shadow">{{organization.name}}</HType>
-				<HType @tagName={{@h3}} class="org-title t-shadow">{{organization.title}}</HType>
+				<HType @tagName={{@h1}} @classNames="org-date t-fsize-smaller">{{organization.date.from}} - {{organization.date.to}}</HType>
+				<HType @tagName={{@h2}} @classNames="org-name t-shadow">{{organization.name}}</HType>
+				<HType @tagName={{@h3}} @classNames="org-title t-shadow">{{organization.title}}</HType>
 				<hr />
 				<ul>
 					{{#each organization.accomplishments as |accomplishment|}}
