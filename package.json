@@ -55,12 +55,14 @@
 		"ember-data": "~5.1.0",
 		"ember-fetch": "^8.1.2",
 		"ember-load-initializers": "^2.1.2",
+		"ember-math-helpers": "^3.0.0",
 		"ember-modifier": "^4.1.0",
 		"ember-page-title": "^7.0.0",
 		"ember-qunit": "^7.0.0",
 		"ember-resolver": "^10.1.1",
 		"ember-source": "~5.1.1",
 		"ember-template-lint": "^5.11.0",
+		"ember-truth-helpers": "^3.1.1",
 		"ember-welcome-page": "^7.0.2",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
@@ -88,8 +90,6 @@
 	},
 	"dependencies": {
 		"breakpoint-sass": "^3.0.0",
-		"ember-math-helpers": "^3.0.0",
-		"ember-truth-helpers": "^3.1.1",
 		"jquery": "^3.7.0",
 		"skrollr": "^0.6.26",
 		"sparkle": "git+https://github.com/cvaccarello/sparkle.git"
