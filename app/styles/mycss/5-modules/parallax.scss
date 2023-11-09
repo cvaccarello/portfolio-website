@@ -15,6 +15,8 @@ main:has(.parallax-container-outer) {
 	position: relative;
 
 	&:before {
+		--parallax-speed-x: 0;
+		--parallax-speed-y: -30;
 		content: '';
 		position: absolute;
 		inset: 0;
@@ -31,11 +33,10 @@ main:has(.parallax-container-outer) {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: radial-gradient(circle at 25% 25%, $color-darkblue 20%, transparent 30%, transparent 100%), radial-gradient(circle at 75% 75%, $color-darkblue 7%, transparent 16%);
+		background: radial-gradient(circle at 25% 25%, $color-darkblue 15%, transparent 28%, transparent 100%), radial-gradient(circle at 75% 75%, $color-darkblue 7%, transparent 16%);
 		background-size: 3em 3em;
 		background-color: transparent;
-		animation: parallax linear;
-		animation-timeline: scroll();
+		animation: parallax 90s linear infinite;
 		z-index: -2;
 	}
 }
