@@ -2,9 +2,23 @@
 @keyframes shine {
 	0% {
 		translate: -1000% 0;
+		opacity: 0;
+	}
+	33% {
+		opacity: 0;
+	}
+	36% {
+		opacity: 1;
+	}
+	37% {
+		opacity: 1;
+	}
+	38% {
+		opacity: 0;
 	}
 	100% {
 		translate: 1800% 0;
+		opacity: 0;
 	}
 }
 
@@ -95,8 +109,8 @@
 			77deg,
 			transparent 0%,
 			transparent 34%,
-			rgba(255, 255, 255, 0.15) (34% + 3%),
-			rgba(255, 255, 255, 0.15) (66% - 3%),
+			rgba(255, 255, 255, 0.25) (34% + 3%),
+			rgba(255, 255, 255, 0.25) (66% - 3%),
 			transparent 66%,
 			transparent 100%);
 		animation: shine 8.0s linear infinite;
