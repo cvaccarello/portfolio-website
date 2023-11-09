@@ -1,6 +1,52 @@
+
+:root {
+	--parallax-speed-x: 0;
+	--parallax-speed-y: 5;
+}
+
+@keyframes parallax {
+	to {
+		background-position-x: calc(var(--parallax-speed-x) * -100px);
+		background-position-y: calc(var(--parallax-speed-y) * -100px);
+	}
+}
+
+main:has(.parallax-container-outer) {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: transparent url('/images/backgrounds/stars.png') 0 0 repeat;
+		opacity: 0.6;
+		animation: parallax linear;
+		animation-timeline: scroll();
+		z-index: -2;
+	}
+
+	&:after {
+		--parallax-speed-x: 5;
+		--parallax-speed-y: 20;
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(circle at 25% 25%, $color-darkblue 20%, transparent 30%, transparent 100%), radial-gradient(circle at 75% 75%, $color-darkblue 7%, transparent 16%);
+		background-size: 3em 3em;
+		background-color: transparent;
+		animation: parallax linear;
+		animation-timeline: scroll();
+		z-index: -2;
+	}
+}
+
 .parallax-container-outer {
 	position: relative;
 	overflow: hidden;
+	// need a base shadow behind text so parallax effects are reduced when moving behind the text (better readability)
+	text-shadow:
+		0 2px 10px darken($color-darkblue, 10%),
+		0 -2px 10px darken($color-darkblue, 10%);
 }
 
 .parallax-container-inner {
@@ -22,14 +68,14 @@
 	height: calc(100% + 560px);
 
 	&.cloud-type-001 {
-		opacity: 0.55;
+		opacity: 0.65;
 	}
 
 	&.cloud-type-002 {
-		opacity: 0.25;
+		opacity: 0.35;
 	}
 
 	&.cloud-type-003 {
-		opacity: 0.35;
+		opacity: 0.45;
 	}
 }
