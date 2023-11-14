@@ -22,6 +22,7 @@
 
 	// remove natural space on image tag, so that it sits on the line below
 	.hp-image {
+		max-width: 460px;
 		display: block;
 		margin-bottom: -$padding-section;
 	}
