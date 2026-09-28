@@ -26,5 +26,8 @@
 # Webstorm
 .idea
 
+# Firebase
+.firebase
+
 # src assets (leaving out for repo optimization & security)
 /public/**/src

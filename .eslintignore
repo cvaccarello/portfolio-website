@@ -1,16 +1,6 @@
-# unconventional js
-/blueprints/*/files/
-
-# compiled output
-/dist/
-
-# misc
-/coverage/
-!.*
-.*/
-
-# ember-try
-/.node_modules.ember-try/
-
-# projects
-/public/
+dist
+node_modules
+public
+coverage
+*.min.js
+.cache

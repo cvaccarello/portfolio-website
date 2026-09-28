@@ -1,0 +1,15 @@
+.ui-theme {
+	background-color: $color-darkblue;
+	color: $color-white;
+}
+
+.ui-theme-inverted {
+	background-color: $color-darkwhite;
+	color: $color-gray;
+
+	@for $i from 1 through $typography-max {
+		#{'h'}#{$i} {
+			color: $color-blue;
+		}
+	}
+}

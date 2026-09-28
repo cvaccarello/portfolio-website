@@ -1,0 +1,21 @@
+.image-gallery-flex-container {
+	display: flex;
+	gap: map-get($margins, 'largest');
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.image-gallery-item {
+	width: 100%;
+	margin-bottom: map-get($margins, 'normal');
+	display: flex;
+	flex-direction: column;
+
+	@include breakpoint($bp-m) {
+		flex-basis: calc(50% - map-get($margins, 'largest'));
+	}
+
+	@include breakpoint($bp-l) {
+		flex-basis: calc(33.33% - map-get($margins, 'largest'));
+	}
+}

@@ -1,0 +1,20 @@
+.rchart-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+	text-align: center;
+	padding-top: 20px;
+	gap: 20px;
+
+	.rchart-box {
+		width: 280px;
+		max-width: 100%;
+	}
+
+	.rchart-label {
+		font-size: 1.8rem;
+		font-weight: normal;
+		text-align: center;
+	}
+}

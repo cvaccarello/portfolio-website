@@ -1,0 +1,37 @@
+.u-justify {
+	text-align: justify;
+
+	.u-justify-inline-block {
+		text-align: center;
+		display: block;
+
+		@include breakpoint($bp-s) {
+			display: inline-block;
+		}
+
+		&:last-child {
+			width: 100%;
+		}
+	}
+}
+
+.u-pull-right {
+	float: right;
+}
+
+.u-pull-left {
+	float: left;
+}
+
+.u-no-select {
+	-webkit-touch-callout: none;
+	user-select: none;
+	user-select: none;
+	user-select: none;
+	user-select: none;
+	user-select: none;
+}
+
+.u-text-center {
+	text-align: center;
+}

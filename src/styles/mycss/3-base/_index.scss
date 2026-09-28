@@ -1,0 +1,32 @@
+@import 'spacing';
+@import 'typography';
+@import 'buttons';
+
+body {
+	display: flex;
+
+	> div {
+		width: 100%;
+		perspective: 300px;
+	}
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	@extend .ui-theme;
+	font-size: 1.3em;
+	line-height: 1.4;
+	font-weight: 400;
+	font-family: 'Roboto', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+	@include breakpoint($bp-s) {
+		font-size: 1.6em;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}

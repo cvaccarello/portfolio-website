@@ -1,16 +1,12 @@
 # portfolio-website
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Portfolio site built with Vue 3, Vite, and SCSS. Hosted on Firebase; localtunnel available for sharing the dev server.
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
-
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://cli.emberjs.com/release/)
-* [Google Chrome](https://google.com/chrome/)
+* [Node.js](https://nodejs.org/) (v16 or later, with npm)
+* [Google Chrome](https://google.com/chrome/) (recommended for best viewing)
 
 ## Installation
 
@@ -20,37 +16,25 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* `npm run start` — starts the Vite dev server at [http://localhost:5173](http://localhost:5173)
+* `npm run tunnel` — starts the dev server and localtunnel (subdomain `chrisv`); ensure the dev server port in `localtunnel` script matches Vite’s port (default 5173)
 
-### Code Generators
+## Linting
 
-Make use of the many generators for code, try `ember help generate` for more details
+* `npm run lint` — run ESLint and Stylelint
+* `npm run lint:fix` — auto-fix lint issues
 
-### Running Tests
+## Building
 
-* `ember test`
-* `ember test --server`
+* `npm run build` — production build (output in `dist/`)
 
-### Linting
+## Deploying
 
-* `npm run lint`
-* `npm run lint:fix`
+* `npm run deploy` — builds and deploys to Firebase Hosting (requires Firebase CLI config and `firebase-tools` installed)
 
-### Building
+## Tech
 
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://cli.emberjs.com/release/)
-* Development Browser Extensions
-	* [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-	* [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+* Vue 3, Vue Router, Vite
+* SCSS (MYCSS: OOCSS / SMACSS / ITCSS)
+* jQuery, skrollr, sparkle (particles), Chart.js (radar charts)
+* Firebase Hosting, localtunnel

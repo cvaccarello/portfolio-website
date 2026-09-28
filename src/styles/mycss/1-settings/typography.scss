@@ -1,0 +1,8 @@
+$typography-headings: ();
+$typography-max: 6;
+
+@for $i from 1 through 6 {
+	$count: 6 - $i + 1;
+	$fsize: (0.5 + ($count * 0.7));
+	$typography-headings: append($typography-headings, $fsize);
+}
