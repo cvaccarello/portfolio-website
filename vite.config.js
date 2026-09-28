@@ -16,7 +16,12 @@ export default defineConfig({
 	css: {
 		preprocessorOptions: {
 			scss: {
-				includePaths: [path.resolve(__dirname, 'node_modules/breakpoint-sass/stylesheets')],
+				includePaths: [
+					path.resolve(
+						__dirname,
+						'node_modules/breakpoint-sass/stylesheets'
+					),
+				],
 			},
 		},
 	},

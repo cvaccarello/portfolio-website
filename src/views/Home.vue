@@ -31,9 +31,11 @@
 							time, I like to either play video games, or create
 							them.
 						</p>
-						<a class="btn btn-primary btn-shiny btn-large" href="/Resume.pdf">
-							<i class="fa-solid fa-download"></i> Resume
-							(.pdf)
+						<a
+							class="btn btn-primary btn-shiny btn-large"
+							href="/Resume.pdf"
+						>
+							<i class="fa-solid fa-download"></i> Resume (.pdf)
 						</a>
 					</div>
 					<img
@@ -248,7 +250,7 @@ onMounted(() => {
 	const $ship = $('.hp-ship-001');
 	ship_height = $ship.outerHeight();
 
-	window.particleSystem = new window.ParticleSystem()
+	window.particleSystem = new window.ParticleSystem();
 
 	particleEmitter = window.particleSystem.addEmitter(
 		new window.ParticleEmitter({
