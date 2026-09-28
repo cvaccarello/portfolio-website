@@ -26,6 +26,7 @@ module.exports = {
 		skrollr: "readonly",
 	},
 	rules: {
+		"prettier/prettier": ["error", { endOfLine: "auto" }],
 		"vue/multi-word-component-names": "off",
 		"vue/attributes-order": "off", // Disables Vue attribute ordering checks (e.g. ref before class)
 	},
